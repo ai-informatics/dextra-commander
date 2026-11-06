@@ -15,8 +15,8 @@ namespace nc::viewer {
 TextModeWorkingSetHighlighting::TextModeWorkingSetHighlighting(std::shared_ptr<const TextModeWorkingSet> _working_set,
                                                                std::shared_ptr<const std::string> _highlighting_options)
     : m_WorkingSet(std::move(_working_set)), m_HighlightingOptions(std::move(_highlighting_options)),
-      m_AsyncQueue(dispatch_queue_create("com.irkhin.DextraCommander.TextModeWorkingSetHighlighting",
-                                         DISPATCH_QUEUE_CONCURRENT))
+      m_AsyncQueue(
+          dispatch_queue_create("com.irkhin.DextraCommander.TextModeWorkingSetHighlighting", DISPATCH_QUEUE_CONCURRENT))
 {
     assert(m_WorkingSet);
     assert(m_HighlightingOptions);

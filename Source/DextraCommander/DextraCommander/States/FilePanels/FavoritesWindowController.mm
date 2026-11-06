@@ -18,7 +18,8 @@
 using namespace nc::panel;
 using namespace std::literals;
 
-static const auto g_FavoritesWindowControllerDragDataType = @"com.irkhin.DextraCommander.FavoritesWindowControllerDragDataType";
+static const auto g_FavoritesWindowControllerDragDataType =
+    @"com.irkhin.DextraCommander.FavoritesWindowControllerDragDataType";
 
 @interface FavoritesWindowController ()
 @property(nonatomic) IBOutlet NSTableView *table;

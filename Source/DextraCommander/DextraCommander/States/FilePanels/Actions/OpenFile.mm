@@ -127,11 +127,12 @@ static NCAppPickerMediator *g_AppPickerMediator = nil;
     popover.delegate = self;
     popover.minimumTitleWidth = 240.;
     if( m_Recent.count != 0 ) {
-        [popover addItem:[NCCommandPopoverItem sectionHeaderWithTitle:NSLocalizedString(
-                                                                          @"Recently Used",
-                                                                          "Recently used apps in the app picker")]];
+        [popover addItem:[NCCommandPopoverItem
+                             sectionHeaderWithTitle:NSLocalizedString(@"Recently Used",
+                                                                      "Recently used apps in the app picker")]];
         for( NSString *path in m_Recent )
-            [popover addItem:[self itemForAppAtPath:path withName:[NSFileManager.defaultManager displayNameAtPath:path]]];
+            [popover addItem:[self itemForAppAtPath:path
+                                           withName:[NSFileManager.defaultManager displayNameAtPath:path]]];
     }
     else {
         [popover addItem:[NCCommandPopoverItem

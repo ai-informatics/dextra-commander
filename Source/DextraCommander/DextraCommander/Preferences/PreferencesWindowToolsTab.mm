@@ -25,7 +25,8 @@ using nc::panel::ExternalTool;
 
 @end
 
-static auto g_MyPrivateTableViewDataType = @"com.irkhin.DextraCommander.pref.PreferencesWindowToolsTabPrivateTableViewDataType";
+static auto g_MyPrivateTableViewDataType =
+    @"com.irkhin.DextraCommander.pref.PreferencesWindowToolsTabPrivateTableViewDataType";
 
 static bool AskUserToDeleteTool()
 {

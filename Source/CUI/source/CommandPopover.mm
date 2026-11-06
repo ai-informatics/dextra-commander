@@ -160,7 +160,7 @@ static constexpr double g_ContentViewCornerRadius = 10.;
 
 - (void)loadView
 {
-        m_AllItems.assign(m_Parent.commandItems.begin(), m_Parent.commandItems.end());
+    m_AllItems.assign(m_Parent.commandItems.begin(), m_Parent.commandItems.end());
     m_FilteredItems = m_AllItems;
 
     [self setupHotKeysMapping];
