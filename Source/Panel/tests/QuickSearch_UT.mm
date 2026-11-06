@@ -493,7 +493,7 @@ VFSListingPtr AppsListing()
                                             "Microsoft PowerPoint.app",
                                             "Microsoft Word.app",
                                             "Mission Control.app",
-                                            "Dextra Commander.app",
+                                            "Nimble Commander.app",
                                             "Notes.app",
                                             "Numbers.app",
                                             "Pages.app",
