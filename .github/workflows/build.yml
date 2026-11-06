@@ -109,7 +109,7 @@ jobs:
         cd Scripts && ./build_unsigned.sh
     - uses: actions/upload-artifact@v4
       with:
-        name: nimble-commander-unsigned
+        name: dextra-commander-unsigned
         path: Scripts/*.dmg
         if-no-files-found: error
     - uses: actions/upload-artifact@v4

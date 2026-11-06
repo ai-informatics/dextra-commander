@@ -1,4 +1,4 @@
-# Releasing a new version of Nimble Commander
+# Releasing a new version of Dextra Commander
 *This is a checklist of various steps to take to release a new version, after the actual work is done.*
 
 ## Step 1: Update dependencies
@@ -36,16 +36,13 @@ Use the 'Release Build' workflow in GitHub Actions on the `main` branch.
 - Add changelog, add the release build.
 
 ## Step 9: Build a Sparkle manifest
-- Check `template.xml` and update if necessary. 
-- Write `whats-new-X.Y.Z.html` from the information in `WHATS_NEW.md`.
-- Place the release build and run `compose.sh`.
+- Put the release build into an empty folder together with the previous `appcast.xml` (from the latest GitHub Release), if any.
+- Run Sparkle's `generate_appcast` on that folder. It signs the update with the EdDSA private key stored in the Keychain; the matching public key is `SUPublicEDKey` in `DextraCommander-NonMAS-Info.plist`.
+- Make sure the enclosure URL in `appcast.xml` points to the DMG attached to the GitHub Release (`https://github.com/irkhin/dextra-commander/releases/download/vX.Y.Z/...`).
 
-## Step 10: Update nimble-commander-website
-- Place the release build into `/downloads/releases/` as `nimble-commander-X.Y.Z(ABCD).dmg` and as `nimble-commander.dmg`.
-- Place the new Sparkle manifest into `/downloads/releases/` as `sparkle-nimble-commander.xml`.
-- Update the front page.
-- Update the `whats-new` page.
-- Update other pages if needed.
-- Commit, push, done - congratulations - the new version is out!
+## Step 10: Publish the Sparkle manifest
+- Attach `appcast.xml` to the GitHub Release created in Step 8 and publish the release.
+- The app reads the feed from `https://github.com/irkhin/dextra-commander/releases/latest/download/appcast.xml` (`SUFeedURL`), so the newest published release must always contain `appcast.xml`.
+- Done - congratulations - the new version is out!
 
 ## Step 11: Release on Mac App Store as well

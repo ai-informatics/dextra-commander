@@ -1,5 +1,5 @@
 name: 🐞 Bug Report
-description: Found a bug in Nimble Commander?
+description: Found a bug in Dextra Commander?
 title: "[Bug]: "
 labels: ["bug"]
 body:
@@ -9,7 +9,7 @@ body:
         Thanks for taking the time to fill out this bug report!
   - type: markdown
     attributes:
-      value: "Please make sure to read the [contributing guidelines](https://github.com/mikekazakov/nimble-commander/blob/main/CONTRIBUTING.md) and **Help.pdf** (including the F.A.Q. section) before submitting an issue."
+      value: "Please make sure to read the [contributing guidelines](https://github.com/irkhin/dextra-commander/blob/main/CONTRIBUTING.md) and **Help.pdf** (including the F.A.Q. section) before submitting an issue."
   - type: checkboxes
     id: agreement
     attributes:
@@ -21,8 +21,8 @@ body:
   - type: input
     id: version
     attributes:
-      label: Version of Nimble Commander
-      description: Please specify the version of Nimble Commander you are using, including your OS.
+      label: Version of Dextra Commander
+      description: Please specify the version of Dextra Commander you are using, including your OS.
       placeholder: ex. v1.5.0, MacOS 14
     validations:
       required: true

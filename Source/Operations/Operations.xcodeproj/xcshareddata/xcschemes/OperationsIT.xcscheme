@@ -52,9 +52,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CF47A97F186C607B00745C4C"
-               BuildableName = "Nimble Commander.xctest"
-               BlueprintName = "NimbleCommander-Tests"
-               ReferencedContainer = "container:../NimbleCommander.xcodeproj">
+               BuildableName = "Dextra Commander.xctest"
+               BlueprintName = "DextraCommander-Tests"
+               ReferencedContainer = "container:../DextraCommander.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference

@@ -1,4 +1,10 @@
-# What's New in Nimble Commander
+# What's New in Dextra Commander
+
+## Unreleased
+- The project is now called Dextra Commander, a fork of Nimble Commander.
+- New: Open With picker. Press `Esc` in a file panel to choose an application for the selected items from a compact, keyboard-driven list of recently used applications, or type to search through all installed ones.
+- Network shares can now be mounted on a non-standard port by specifying the server as `host:port`, for example `nas.local:4455`.
+- Leading and trailing slashes in network share names are now ignored, so `/video/` and `video` refer to the same share.
 
 ## Version 1.9.0 (1 Nov 2026)
 - Updated for macOS Golden Gate.
@@ -60,7 +66,7 @@
 - Improved the security checks in the privileged helper.
 
 ## Version 1.6.0 (14 May 2024)
-- Nimble Commander is now completely free and open source.
+- Dextra Commander is now completely free and open source.
 - Added support for file tags.
 - Fixed an issue that could stop directory updates on SMB volumes.
 - Fixed an issue where the mouse cursor could navigate to the wrong directory.
@@ -301,7 +307,7 @@
 - Fixed some visual and stability bugs.
 
 ## Version 1.1.2 (7 June 2016)
-- Changed the application’s title to Nimble Commander.
+- Changed the application’s title to Dextra Commander.
 - Added basic support for editing remote files.
 - Added support for lightweight search with Spotlight.
 - Added the new ⌥⌘V shortcut to move item here.

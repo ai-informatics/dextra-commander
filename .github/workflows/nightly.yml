@@ -62,7 +62,7 @@ jobs:
         rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.provisionprofile
     - uses: actions/upload-artifact@v4
       with:
-        name: nimble-commander-nightly
+        name: dextra-commander-nightly
         path: |
           Scripts/*.dmg
           Scripts/*.dSYM.zip

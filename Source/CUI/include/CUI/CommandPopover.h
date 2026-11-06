@@ -45,6 +45,11 @@ enum class NCCommandPopoverAlignment : uint8_t {
 @optional
 // Called after the popover is closed due to any reason.
 - (void)commandPopoverDidClose:(NCCommandPopover *_Nonnull)_popover;
+
+// If implemented, it's called whenever the search string is not empty and the returned items are shown instead of
+// the regular ones filtered by their titles. This allows searching over a set of items wider than the initial one.
+- (NSArray<NCCommandPopoverItem *> *_Nonnull)commandPopover:(NCCommandPopover *_Nonnull)_popover
+                                       itemsForSearchString:(NSString *_Nonnull)_search;
 @end
 
 @interface NCCommandPopover : NSObject <NSWindowDelegate>
@@ -64,5 +69,8 @@ enum class NCCommandPopoverAlignment : uint8_t {
 - (void)close;
 
 @property(nonatomic, nullable, weak) id<NCCommandPopoverDelegate> delegate;
+
+// The minimum width of the titles column, useful when the items can change while searching. Zero by default.
+@property(nonatomic) double minimumTitleWidth;
 
 @end

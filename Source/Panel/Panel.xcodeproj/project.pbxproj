@@ -609,7 +609,7 @@
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = resources/PanelResources.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = Icom.magnumbytes.NimbleCommander.PanelResources;
+				PRODUCT_BUNDLE_IDENTIFIER = Icom.irkhin.DextraCommander.PanelResources;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -624,7 +624,7 @@
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = resources/PanelResources.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = Icom.magnumbytes.NimbleCommander.PanelResources;
+				PRODUCT_BUNDLE_IDENTIFIER = Icom.irkhin.DextraCommander.PanelResources;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;

@@ -160,13 +160,13 @@ static constexpr double g_ContentViewCornerRadius = 10.;
 
 - (void)loadView
 {
-    m_AllItems.assign(m_Parent.commandItems.begin(), m_Parent.commandItems.end());
+        m_AllItems.assign(m_Parent.commandItems.begin(), m_Parent.commandItems.end());
     m_FilteredItems = m_AllItems;
 
     [self setupHotKeysMapping];
     const double max_title_width = [self maximumCommandTitleWidth];
     const double title_col_margin = 20.;
-    const double title_col_width = std::max(max_title_width + title_col_margin, 160.);
+    const double title_col_width = std::max({max_title_width + title_col_margin, 160., m_Parent.minimumTitleWidth});
 
     NCCommandPopoverContentView *v = [[NCCommandPopoverContentView alloc] initWithFrame:NSMakeRect(0., 0., 200., 200.)];
 
@@ -729,7 +729,14 @@ static constexpr double g_ContentViewCornerRadius = 10.;
     };
 
     std::vector<NCCommandPopoverItem *> new_filtered;
-    std::ranges::copy_if(m_AllItems, std::back_inserter(new_filtered), validate);
+    const id<NCCommandPopoverDelegate> delegate = m_Parent.delegate;
+    if( str.length != 0 && [delegate respondsToSelector:@selector(commandPopover:itemsForSearchString:)] ) {
+        for( NCCommandPopoverItem *item in [delegate commandPopover:m_Parent itemsForSearchString:str] )
+            new_filtered.push_back(item);
+    }
+    else {
+        std::ranges::copy_if(m_AllItems, std::back_inserter(new_filtered), validate);
+    }
     if( new_filtered == m_FilteredItems )
         return; // nothing to do
 
@@ -990,9 +997,11 @@ static constexpr NSTrackingAreaOptions g_TrackingOptions =
     NCCommandPopoverWindow *m_Window;
     NSSize m_ContentSize;
     __weak id<NCCommandPopoverDelegate> m_Delegate;
+    double m_MinimumTitleWidth;
 }
 
 @synthesize delegate = m_Delegate;
+@synthesize minimumTitleWidth = m_MinimumTitleWidth;
 
 - (instancetype _Nonnull)initWithTitle:(NSString *_Nonnull)_title
 {

@@ -59,6 +59,6 @@ jobs:
         rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.provisionprofile
     - uses: actions/upload-artifact@v4
       with:
-        name: nimble-commander
+        name: dextra-commander
         path: Scripts/*.dmg
         if-no-files-found: error

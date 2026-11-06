@@ -1,0 +1,1517 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Active background" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Active background"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "活动背景"
+          }
+        }
+      }
+    },
+    "Active text color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Active text color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "活动文字颜色"
+          }
+        }
+      }
+    },
+    "ANSI color 0 (black)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 0 (black)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 0（黑色）"
+          }
+        }
+      }
+    },
+    "ANSI color 1 (red)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 1 (red)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 1（红色）"
+          }
+        }
+      }
+    },
+    "ANSI color 2 (green)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 2 (green)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 2（绿色）"
+          }
+        }
+      }
+    },
+    "ANSI color 3 (yellow)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 3 (yellow)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 3（黄色）"
+          }
+        }
+      }
+    },
+    "ANSI color 4 (blue)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 4 (blue)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 4（蓝色）"
+          }
+        }
+      }
+    },
+    "ANSI color 5 (magenta)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 5 (magenta)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 5（洋红色）"
+          }
+        }
+      }
+    },
+    "ANSI color 6 (cyan)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 6 (cyan)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 6（青色）"
+          }
+        }
+      }
+    },
+    "ANSI color 7 (white)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 7 (white)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 7（白色）"
+          }
+        }
+      }
+    },
+    "ANSI color 8 (bright black)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 8 (bright black)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 8（亮黑色）"
+          }
+        }
+      }
+    },
+    "ANSI color 9 (bright red)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 9 (bright red)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 9（亮红色）"
+          }
+        }
+      }
+    },
+    "ANSI color 10 (bright green)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 10 (bright green)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 10（亮绿色）"
+          }
+        }
+      }
+    },
+    "ANSI color 11 (bright yellow)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 11 (bright yellow)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 11（亮黄色）"
+          }
+        }
+      }
+    },
+    "ANSI color 12 (bright blue)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 12 (bright blue)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 12（亮蓝色）"
+          }
+        }
+      }
+    },
+    "ANSI color 13 (bright magenta)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 13 (bright magenta)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 13（亮洋红色）"
+          }
+        }
+      }
+    },
+    "ANSI color 14 (bright cyan)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 14 (bright cyan)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 14（亮青色）"
+          }
+        }
+      }
+    },
+    "ANSI color 15 (bright white)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ANSI color 15 (bright white)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANSI 颜色 15（亮白色）"
+          }
+        }
+      }
+    },
+    "Are you sure you want to clear saved file states?" : {
+      "comment" : "Message text asking if user really wants to clear saved viewer file states",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы действительно хотите очистить сохраненные состояния файлов?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定要清除已存储的文件状态吗？"
+          }
+        }
+      }
+    },
+    "Are you sure you want to reset granted filesystem access?" : {
+      "comment" : "Message text asking if user really wants to reset current file system access",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы действительно хотите сбросить доступ к файловой системе?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定要重置已授予的文件系统访问权限吗？"
+          }
+        }
+      }
+    },
+    "Are you sure you want to reset hotkeys to defaults?" : {
+      "comment" : "Message text asking if user really wants to reset hotkeys to defaults",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы действительно хотите установить горячие клавиши по умолчанию? "
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定要将快捷键重置为默认值吗？"
+          }
+        }
+      }
+    },
+    "Background" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Background"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "背景"
+          }
+        }
+      }
+    },
+    "Background color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Background color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "背景颜色"
+          }
+        }
+      }
+    },
+    "Brief mode" : {
+      "comment" : "Theme settings group title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Brief mode"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "简要模式"
+          }
+        }
+      }
+    },
+    "Cursor color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cursor color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光标颜色"
+          }
+        }
+      }
+    },
+    "Custom" : {
+      "comment" : "Custom font button title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Custom"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义"
+          }
+        }
+      }
+    },
+    "Drop border color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Drop border color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拖放边框颜色"
+          }
+        }
+      }
+    },
+    "edit" : {
+      "comment" : "Coloring rules edit button title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ред."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑"
+          }
+        }
+      }
+    },
+    "Editors" : {
+      "comment" : "General preferences tab title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Редакторы"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑器"
+          }
+        }
+      }
+    },
+    "Even row background" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Even row background"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "偶数行背景"
+          }
+        }
+      }
+    },
+    "File panels" : {
+      "comment" : "Theme settings group title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "File panels"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文件面板"
+          }
+        }
+      }
+    },
+    "Filenames coloring rules" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Filenames coloring rules"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文件名着色规则"
+          }
+        }
+      }
+    },
+    "Focused item background, active" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Focused item background, active"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "聚焦项目背景（活动）"
+          }
+        }
+      }
+    },
+    "Focused item background, inactive" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Focused item background, inactive"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "聚焦项目背景（非活动）"
+          }
+        }
+      }
+    },
+    "Footer" : {
+      "comment" : "Theme settings group title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Footer"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "页脚"
+          }
+        }
+      }
+    },
+    "Foreground bold color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Foreground bold color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前景粗体颜色"
+          }
+        }
+      }
+    },
+    "Foreground color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Foreground color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前景颜色"
+          }
+        }
+      }
+    },
+    "Gallery mode" : {
+      "comment" : "Theme settings group title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Gallery mode"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画廊模式"
+          }
+        }
+      }
+    },
+    "General" : {
+      "comment" : "General preferences tab title\nTheme settings group title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основное"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通用"
+          }
+        }
+      }
+    },
+    "Grid color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Grid color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网格颜色"
+          }
+        }
+      }
+    },
+    "Header" : {
+      "comment" : "Theme settings group title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Header"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "表头"
+          }
+        }
+      }
+    },
+    "Header background" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Header background"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "表头背景"
+          }
+        }
+      }
+    },
+    "Header font" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Header font"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "表头字体"
+          }
+        }
+      }
+    },
+    "Header separator" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Header separator"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "表头分隔线"
+          }
+        }
+      }
+    },
+    "Header text color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Header text color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "表头文字颜色"
+          }
+        }
+      }
+    },
+    "Hotkeys" : {
+      "comment" : "General preferences tab title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Хоткеи"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "快捷键"
+          }
+        }
+      }
+    },
+    "Inactive background" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Inactive background"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "非活动背景"
+          }
+        }
+      }
+    },
+    "Layout #%ld" : {
+      "comment" : "Fallback name for an unnamed layout",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Layout #%ld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "布局 #%ld"
+          }
+        }
+      }
+    },
+    "List mode" : {
+      "comment" : "Theme settings group title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "List mode"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "列表模式"
+          }
+        }
+      }
+    },
+    "Odd row background" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Odd row background"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "奇数行背景"
+          }
+        }
+      }
+    },
+    "Overlay color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Overlay color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叠加颜色"
+          }
+        }
+      }
+    },
+    "Panels" : {
+      "comment" : "General preferences tab title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Панели"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "面板"
+          }
+        }
+      }
+    },
+    "Pictogram" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pictogram"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "图标"
+          }
+        }
+      }
+    },
+    "Regular" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Regular"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常规"
+          }
+        }
+      }
+    },
+    "Regular & key window" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Regular & key window"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常规 & 主窗口"
+          }
+        }
+      }
+    },
+    "Regular & key window & hover" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Regular & key window & hover"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常规 & 主窗口 & 悬停"
+          }
+        }
+      }
+    },
+    "Regular text color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Regular text color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常规文字颜色"
+          }
+        }
+      }
+    },
+    "Row vertical padding" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Row vertical padding"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "行垂直边距"
+          }
+        }
+      }
+    },
+    "Secondary text opacity (%)" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Secondary text opacity (%)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次要文字不透明度 (%)"
+          }
+        }
+      }
+    },
+    "Selected" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Selected"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已选择"
+          }
+        }
+      }
+    },
+    "Selected & key window" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Selected & key window"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已选择 & 主窗口"
+          }
+        }
+      }
+    },
+    "Selected & key window & active" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Selected & key window & active"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已选择 & 主窗口 & 活动"
+          }
+        }
+      }
+    },
+    "Selected item background" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Selected item background"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所选项目背景"
+          }
+        }
+      }
+    },
+    "Selection" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Selection"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所选内容"
+          }
+        }
+      }
+    },
+    "Selection color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Selection color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所选内容颜色"
+          }
+        }
+      }
+    },
+    "Separator" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Separator"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分隔线"
+          }
+        }
+      }
+    },
+    "Splitter color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Splitter color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分隔条颜色"
+          }
+        }
+      }
+    },
+    "Standard" : {
+      "comment" : "Standard font button title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Standard"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "标准"
+          }
+        }
+      }
+    },
+    "Syntax color - comment" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Syntax color - comment"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语法颜色 - 注释"
+          }
+        }
+      }
+    },
+    "Syntax color - identifier" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Syntax color - identifier"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语法颜色 - 标识符"
+          }
+        }
+      }
+    },
+    "Syntax color - keyword" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Syntax color - keyword"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语法颜色 - 关键字"
+          }
+        }
+      }
+    },
+    "Syntax color - number" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Syntax color - number"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语法颜色 - 数字"
+          }
+        }
+      }
+    },
+    "Syntax color - operator" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Syntax color - operator"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语法颜色 - 运算符"
+          }
+        }
+      }
+    },
+    "Syntax color - preprocessor" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Syntax color - preprocessor"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语法颜色 - 预处理指令"
+          }
+        }
+      }
+    },
+    "Syntax color - string" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Syntax color - string"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语法颜色 - 字符串"
+          }
+        }
+      }
+    },
+    "Tabs" : {
+      "comment" : "Theme settings group title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tabs"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "标签页"
+          }
+        }
+      }
+    },
+    "Terminal" : {
+      "comment" : "General preferences tab title\nTheme settings group title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Терминал"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "终端"
+          }
+        }
+      }
+    },
+    "Text color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Text color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文字颜色"
+          }
+        }
+      }
+    },
+    "Text font" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Text font"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文字字体"
+          }
+        }
+      }
+    },
+    "Theme title" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Theme title"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主题标题"
+          }
+        }
+      }
+    },
+    "Themes" : {
+      "comment" : "General preferences tab title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Темы"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主题"
+          }
+        }
+      }
+    },
+    "This will cause Dextra Commander to ask you for access when necessary." : {
+      "comment" : "Informative text saying that Dextra Commander will ask for filesystem access when need it",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dextra Commander будет спрашивать вас о предоставлении доступа при необходимости."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这会使 Dextra Commander 在需要时向你请求访问权限。"
+          }
+        }
+      }
+    },
+    "This will clear any custom hotkeys." : {
+      "comment" : "Informative text when user wants to reset hotkeys to defaults",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваши изменения горячих клавиш будут удалены."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这将清除所有自定义快捷键。"
+          }
+        }
+      }
+    },
+    "This will erase stored positions, encodings, selections, etc." : {
+      "comment" : "Informative text displayed when the user is going to clear saved file state",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будут удалены сохраненные позиции, кодировки, выделения и т.д."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这将清除已存储的位置、编码、选择等内容。"
+          }
+        }
+      }
+    },
+    "Tools" : {
+      "comment" : "Tools preferences tab title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Инструменты"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "工具"
+          }
+        }
+      }
+    },
+    "Top separator color" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Top separator color"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顶部分隔线颜色"
+          }
+        }
+      }
+    },
+    "UI Appearance" : {
+      "comment" : "Theme settings entry title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "UI Appearance"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "界面外观"
+          }
+        }
+      }
+    },
+    "Viewer" : {
+      "comment" : "General preferences tab title\nTheme settings group title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Просмотрщик"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看器"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

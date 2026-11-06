@@ -198,7 +198,7 @@
 		CFE33EBB2135708800C3902C /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		CFF762352EDA3946002DD1EE /* _Utility_UT.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = _Utility_UT.cpp; path = tests/_Utility_UT.cpp; sourceTree = "<group>"; };
 		CFF762372EDA3B6A002DD1EE /* _Utility_UT.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = _Utility_UT.mm; path = tests/_Utility_UT.mm; sourceTree = "<group>"; };
-		CFFA948E1F453DF30035E606 /* libHabanero.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libHabanero.dylib; path = "../../../../Library/Developer/Xcode/DerivedData/NimbleCommander-gmplwpfcimcucreprhpqaoectnmi/Build/Products/Debug/libHabanero.dylib"; sourceTree = "<group>"; };
+		CFFA948E1F453DF30035E606 /* libHabanero.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libHabanero.dylib; path = "../../../../Library/Developer/Xcode/DerivedData/DextraCommander-gmplwpfcimcucreprhpqaoectnmi/Build/Products/Debug/libHabanero.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -618,7 +618,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = "";
 				INFOPLIST_FILE = resources/UtilityResources.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.magnumbytes.NimbleCommander.UtilityResources;
+				PRODUCT_BUNDLE_IDENTIFIER = com.irkhin.DextraCommander.UtilityResources;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -632,7 +632,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = "";
 				INFOPLIST_FILE = resources/UtilityResources.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.magnumbytes.NimbleCommander.UtilityResources;
+				PRODUCT_BUNDLE_IDENTIFIER = com.irkhin.DextraCommander.UtilityResources;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;

@@ -2,8 +2,8 @@
 set -o pipefail
 
 XC="xcodebuild \
-    -project ../Source/NimbleCommander/NimbleCommander.xcodeproj \
-    -scheme NimbleCommander-Unsigned \
+    -project ../Source/DextraCommander/DextraCommander.xcodeproj \
+    -scheme DextraCommander-Unsigned \
     -configuration Debug"
 
 APP_DIR=$($XC -showBuildSettings | grep " BUILT_PRODUCTS_DIR =" | sed -e 's/.*= *//' )

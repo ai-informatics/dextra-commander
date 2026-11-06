@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>AssociatedBundleIdentifiers</key>
-	<string>info.filesmanager.Files</string>
+	<string>com.irkhin.DextraCommander</string>
 	<key>Label</key>
-	<string>info.filesmanager.Files.PrivilegedIOHelperV2</string>
+	<string>com.irkhin.DextraCommander.PrivilegedIOHelperV2</string>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>MachServices</key>
 	<dict>
-		<key>info.filesmanager.Files.PrivilegedIOHelperV2</key>
+		<key>com.irkhin.DextraCommander.PrivilegedIOHelperV2</key>
 		<true/>
 	</dict>
 </dict>

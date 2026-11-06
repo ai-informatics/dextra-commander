@@ -1,25 +1,32 @@
-[![Build and Test](https://github.com/mikekazakov/nimble-commander/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/mikekazakov/nimble-commander/actions/workflows/build.yml)
-[![Nightly Build](https://github.com/mikekazakov/nimble-commander/actions/workflows/nightly.yml/badge.svg?branch=main)](https://github.com/mikekazakov/nimble-commander/actions/workflows/nightly.yml)
+[![Build and Test](https://github.com/irkhin/dextra-commander/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/irkhin/dextra-commander/actions/workflows/build.yml)
+[![Nightly Build](https://github.com/irkhin/dextra-commander/actions/workflows/nightly.yml/badge.svg?branch=main)](https://github.com/irkhin/dextra-commander/actions/workflows/nightly.yml)
 
-# Nimble Commander
+# Dextra Commander
 ![](Docs/nc.png)
-Nimble Commander is a free dual-pane file manager for macOS, designed with a focus on speed, keyboard-based navigation, and flexibility.  
+Dextra Commander is a free dual-pane file manager for macOS, designed with a focus on speed, keyboard-based navigation, and flexibility.  
 The project's aim is to blend the user experience of classic file managers from the '80s-'90s with the modern look and feel of Mac computers.  
-Visit the project's website at: https://magnumbytes.com.  
+Dextra Commander is a fork of [Nimble Commander](https://github.com/mikekazakov/nimble-commander) by Michael Kazakov.  
 
-# Getting Nimble Commander
+## What's Different
+On top of everything Nimble Commander offers, Dextra Commander adds:
+
+- **Open With picker.** Press `Esc` in a file panel to open the selected items with any application, right from the keyboard: pick one of the recently used applications or type to search through all installed ones.
+- **Custom ports for network shares.** Connect to SMB servers listening on a non-standard port by entering the server as `host:port`, e.g. `nas.local:4455`.
+
+See [WHATS_NEW.md](WHATS_NEW.md) for the full list of changes and [Help.md](Docs/Help.md) for details.
+
+# Getting Dextra Commander
 
 ## Nightly Builds
-You can download the latest nightly build of the app from [GitHub Actions](https://github.com/mikekazakov/nimble-commander/actions/workflows/nightly.yml).  
-Go to the most recent integration and select the `nimble-commander-nightly` in the `Artifacts` section (a GitHub account is required).
+You can download the latest nightly build of the app from [GitHub Actions](https://github.com/irkhin/dextra-commander/actions/workflows/nightly.yml).  
+Go to the most recent integration and select the `dextra-commander-nightly` in the `Artifacts` section (a GitHub account is required).
 
 ## Current Release
-Direct download link: https://magnumbytes.com/downloads/releases/nimble-commander.dmg.  
-Available on Mac App Store: https://itunes.apple.com/app/files-lite/id905202937?ls=1&mt=12.  
-Install via Homebrew: `brew install nimble-commander`.  
+Download the latest release from [GitHub Releases](https://github.com/irkhin/dextra-commander/releases/latest).  
 
 ## Past Releases
-Access all previous releases at https://github.com/mikekazakov/nimble-commander-releases. 
+Access all previous releases at https://github.com/irkhin/dextra-commander/releases.  
+Releases of the original Nimble Commander are available at https://github.com/mikekazakov/nimble-commander-releases.
 
 # Documentation
 The user guide can be found here: [Help.md](Docs/Help.md).
@@ -35,4 +42,5 @@ Your contributions are welcome and greatly appreciated! For guidelines on how to
 
 # License
 Copyright (C) 2013-2026 Michael Kazakov (mike.kazakov@gmail.com)  
+Copyright (C) 2026 Alexey Irkhin (modifications in Dextra Commander)  
 The source code is distributed under GNU General Public License version 3.

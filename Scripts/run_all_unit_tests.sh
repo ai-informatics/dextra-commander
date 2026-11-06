@@ -27,7 +27,7 @@ mkdir "${BUILD_DIR}"
 
 ROOT_DIR=$(cd "$SCRIPTS_DIR/.." && pwd)
 
-XCODEPROJ="../Source/NimbleCommander/NimbleCommander.xcodeproj"
+XCODEPROJ="../Source/DextraCommander/DextraCommander.xcodeproj"
 
 LOG_FILE=${BUILD_DIR}/xcodebuild.log
 
