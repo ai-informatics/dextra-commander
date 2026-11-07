@@ -615,6 +615,12 @@ static NCAppDelegate *g_Me = nil;
     [NSWorkspace.sharedWorkspace openURL:url];
 }
 
+- (IBAction)onMainMenuPerformSupportProject:(id) [[maybe_unused]] _sender
+{
+    const auto url = [NSURL URLWithString:@"https://github.com/sponsors/irkhin"];
+    [NSWorkspace.sharedWorkspace openURL:url];
+}
+
 - (IBAction)OnMenuToggleAdminMode:(id) [[maybe_unused]] _sender
 {
     using nc::routedio::RoutedIO;

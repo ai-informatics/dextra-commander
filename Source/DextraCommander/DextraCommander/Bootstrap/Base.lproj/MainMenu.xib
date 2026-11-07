@@ -1032,6 +1032,12 @@ CQ
                                     <action selector="onMainMenuPerformGoToProductForum:" target="-1" id="wNL-dn-2ck"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Support Dextra Commander..." tag="17015" id="SDC-sp-Mnu">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="onMainMenuPerformSupportProject:" target="-1" id="SDC-sp-Act"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Debug" tag="17020" id="3aO-vj-hIL">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Debug" id="J1h-Qq-hWI">

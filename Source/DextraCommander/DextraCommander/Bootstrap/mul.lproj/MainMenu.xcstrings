@@ -3859,6 +3859,30 @@
         }
       }
     },
+    "SDC-sp-Mnu.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Support Dextra Commander...\"; ObjectID = \"SDC-sp-Mnu\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Support Dextra Commander..."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поддержать Dextra Commander..."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持 Dextra Commander..."
+          }
+        }
+      }
+    },
     "shC-cZ-x2T.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Forward\"; ObjectID = \"shC-cZ-x2T\";",
       "extractionState" : "extracted_with_value",

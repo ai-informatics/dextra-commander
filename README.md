@@ -40,6 +40,19 @@ For build instructions and an overview of the source code, please refer to the [
 # Contributing to the Project
 Your contributions are welcome and greatly appreciated! For guidelines on how to contribute, including reporting bugs, suggesting features, and submitting code changes, please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
+# Support the Project
+Dextra Commander is free and open source, and it will stay that way.
+Keeping it up to date with every new macOS release, fixing bugs, and building new features takes a lot of time, as do the costs of code signing and notarization.
+
+If Dextra Commander is part of your daily workflow, please consider supporting its development:
+
+- **Become a sponsor** on [GitHub Sponsors](https://github.com/sponsors/irkhin). One-time and monthly sponsorships are both welcome.
+- **Spread the word.** Star the repository, tell your colleagues, or write about it.
+- **Contribute.** Report bugs, suggest features, help other users in [Discussions](https://github.com/irkhin/dextra-commander/discussions), or send a pull request.
+
+You can also find `Support Dextra Commander...` in the app's `Help` menu.
+Thank you, your support keeps the project alive!
+
 # License
 Copyright (C) 2013-2026 Michael Kazakov (mike.kazakov@gmail.com)  
 Copyright (C) 2026 Alexey Irkhin (modifications in Dextra Commander)  
