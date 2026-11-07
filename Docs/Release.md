@@ -38,11 +38,11 @@ Use the 'Release Build' workflow in GitHub Actions on the `main` branch.
 ## Step 9: Build a Sparkle manifest
 - Put the release build into an empty folder together with the previous `appcast.xml` (from the latest GitHub Release), if any.
 - Run Sparkle's `generate_appcast` on that folder. It signs the update with the EdDSA private key stored in the Keychain; the matching public key is `SUPublicEDKey` in `DextraCommander-NonMAS-Info.plist`.
-- Make sure the enclosure URL in `appcast.xml` points to the DMG attached to the GitHub Release (`https://github.com/irkhin/dextra-commander/releases/download/vX.Y.Z/...`).
+- Make sure the enclosure URL in `appcast.xml` points to the DMG attached to the GitHub Release (`https://github.com/ai-informatics/dextra-commander/releases/download/vX.Y.Z/...`).
 
 ## Step 10: Publish the Sparkle manifest
 - Attach `appcast.xml` to the GitHub Release created in Step 8 and publish the release.
-- The app reads the feed from `https://github.com/irkhin/dextra-commander/releases/latest/download/appcast.xml` (`SUFeedURL`), so the newest published release must always contain `appcast.xml`.
+- The app reads the feed from `https://github.com/ai-informatics/dextra-commander/releases/latest/download/appcast.xml` (`SUFeedURL`), so the newest published release must always contain `appcast.xml`.
 - Done - congratulations - the new version is out!
 
 ## Step 11: Release on Mac App Store as well

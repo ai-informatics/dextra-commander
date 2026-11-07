@@ -1,5 +1,5 @@
-[![Build and Test](https://github.com/irkhin/dextra-commander/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/irkhin/dextra-commander/actions/workflows/build.yml)
-[![Nightly Build](https://github.com/irkhin/dextra-commander/actions/workflows/nightly.yml/badge.svg?branch=main)](https://github.com/irkhin/dextra-commander/actions/workflows/nightly.yml)
+[![Build and Test](https://github.com/ai-informatics/dextra-commander/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/ai-informatics/dextra-commander/actions/workflows/build.yml)
+[![Nightly Build](https://github.com/ai-informatics/dextra-commander/actions/workflows/nightly.yml/badge.svg?branch=main)](https://github.com/ai-informatics/dextra-commander/actions/workflows/nightly.yml)
 
 # Dextra Commander
 ![](Docs/nc.png)
@@ -18,14 +18,14 @@ See [WHATS_NEW.md](WHATS_NEW.md) for the full list of changes and [Help.md](Docs
 # Getting Dextra Commander
 
 ## Nightly Builds
-You can download the latest nightly build of the app from [GitHub Actions](https://github.com/irkhin/dextra-commander/actions/workflows/nightly.yml).  
+You can download the latest nightly build of the app from [GitHub Actions](https://github.com/ai-informatics/dextra-commander/actions/workflows/nightly.yml).  
 Go to the most recent integration and select the `dextra-commander-nightly` in the `Artifacts` section (a GitHub account is required).
 
 ## Current Release
-Download the latest release from [GitHub Releases](https://github.com/irkhin/dextra-commander/releases/latest).  
+Download the latest release from [GitHub Releases](https://github.com/ai-informatics/dextra-commander/releases/latest).  
 
 ## Past Releases
-Access all previous releases at https://github.com/irkhin/dextra-commander/releases.  
+Access all previous releases at https://github.com/ai-informatics/dextra-commander/releases.  
 Releases of the original Nimble Commander are available at https://github.com/mikekazakov/nimble-commander-releases.
 
 # Documentation
@@ -48,7 +48,7 @@ If Dextra Commander is part of your daily workflow, please consider supporting i
 
 - **Become a sponsor** on [GitHub Sponsors](https://github.com/sponsors/irkhin). One-time and monthly sponsorships are both welcome.
 - **Spread the word.** Star the repository, tell your colleagues, or write about it.
-- **Contribute.** Report bugs, suggest features, help other users in [Discussions](https://github.com/irkhin/dextra-commander/discussions), or send a pull request.
+- **Contribute.** Report bugs, suggest features, help other users in [Discussions](https://github.com/ai-informatics/dextra-commander/discussions), or send a pull request.
 
 You can also find `Support Dextra Commander...` in the app's `Help` menu.
 Thank you, your support keeps the project alive!

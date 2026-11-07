@@ -979,8 +979,8 @@ Some actions do not have default hotkeys but can still be accessed through the a
 **Q**: I have an idea for Dextra Commander!  
 **A**: That’s fantastic!
 Feel free to contribute your ideas and proposed changes to the project.
-The entire source code and build instructions for Dextra Commander are available in [this repository](https://github.com/irkhin/dextra-commander).
-Be sure to read through the [CONTRIBUTING](https://github.com/irkhin/dextra-commander/blob/main/CONTRIBUTING.md) guidelines carefully before you start.
+The entire source code and build instructions for Dextra Commander are available in [this repository](https://github.com/ai-informatics/dextra-commander).
+Be sure to read through the [CONTRIBUTING](https://github.com/ai-informatics/dextra-commander/blob/main/CONTRIBUTING.md) guidelines carefully before you start.
 
 ---
 
@@ -990,7 +990,7 @@ As Dextra Commander is maintained by a single contributor, resources are limited
 The Apple ecosystem is rather hostile to developers, and just maintaining the project up to date with the constant macOS/toolchain/dependencies changes requires significant effort.
 However, contributions of reasonable quality from the community are welcome.
 You can consider implementing the feature yourself.
-Check out the [contribution guidelines](https://github.com/irkhin/dextra-commander/blob/main/CONTRIBUTING.md) for more information.
+Check out the [contribution guidelines](https://github.com/ai-informatics/dextra-commander/blob/main/CONTRIBUTING.md) for more information.
 
 ---
 
@@ -1029,7 +1029,7 @@ The only workaround is to use an older version.
 ---
 
 **Q**: How can I download a previous version?  
-**A**: All previous releases are available here: [https://github.com/irkhin/dextra-commander/releases](https://github.com/irkhin/dextra-commander/releases).
+**A**: All previous releases are available here: [https://github.com/ai-informatics/dextra-commander/releases](https://github.com/ai-informatics/dextra-commander/releases).
 Releases of the original Nimble Commander are available here: [https://github.com/mikekazakov/nimble-commander-releases](https://github.com/mikekazakov/nimble-commander-releases)
 
 ---

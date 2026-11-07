@@ -611,7 +611,7 @@ static NCAppDelegate *g_Me = nil;
 
 - (IBAction)onMainMenuPerformGoToProductForum:(id) [[maybe_unused]] _sender
 {
-    const auto url = [NSURL URLWithString:@"https://github.com/irkhin/dextra-commander/discussions"];
+    const auto url = [NSURL URLWithString:@"https://github.com/ai-informatics/dextra-commander/discussions"];
     [NSWorkspace.sharedWorkspace openURL:url];
 }
 

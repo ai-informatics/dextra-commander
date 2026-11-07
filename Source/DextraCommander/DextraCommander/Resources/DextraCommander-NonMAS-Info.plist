@@ -90,7 +90,7 @@ All rights reserved.</string>
 		<string>identifier com.irkhin.DextraCommander.PrivilegedIOHelperV2 and certificate leaf[subject.CN] = &quot;Developer ID Application: Mikhail Kazakov (AC5SJT236H)&quot;</string>
 	</dict>
 	<key>SUFeedURL</key>
-	<string>https://github.com/irkhin/dextra-commander/releases/latest/download/appcast.xml</string>
+	<string>https://github.com/ai-informatics/dextra-commander/releases/latest/download/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>eRL2cw4P9ka13MIjGx8tQbtfjeZLKe6bLA8AjNDnewQ=</string>
 </dict>
