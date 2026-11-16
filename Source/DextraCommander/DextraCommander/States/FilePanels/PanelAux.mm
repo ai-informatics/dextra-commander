@@ -15,7 +15,13 @@
 #include <DextraCommander/States/MainWindowController.h>
 #include "PanelAux.h"
 #include "ExternalEditorInfo.h"
+#include <DextraCommander/States/FilePanels/MainWindowFilePanelState.h>
+#include <DextraCommander/States/FilePanels/PanelView.h>
+#include <Panel/PanelData.h>
+#include <Operations/ArchiveUpdating.h>
 #include <Operations/Copying.h>
+#include <Operations/Localizable.h>
+#include <VFS/ArcLA.h>
 #include <Base/dispatch_cpp.h>
 #include <Utility/StringExtras.h>
 #include <ranges>
@@ -34,6 +40,7 @@ static const std::string_view g_ConfigDisableSystemCaches = "filePanel.operation
 static const std::string_view g_CheckDelay = "filePanel.operations.vfsShadowUploadChangesCheckDelay";
 static const std::string_view g_DropDelay = "filePanel.operations.vfsShadowUploadObservationDropDelay";
 static const std::string_view g_QLPanel = "filePanel.presentation.showQuickLookAsFloatingPanel";
+static const std::string_view g_UpdateArchives = "filePanel.operations.updateArchivesOnFileChanges";
 
 static std::chrono::milliseconds UploadingCheckDelay()
 {
@@ -61,6 +68,176 @@ static std::chrono::milliseconds UploadingDropDelay()
     return delay;
 }
 
+static bool UpdateArchivesOnFileChanges()
+{
+    static const auto fetch = [] {
+        return !GlobalConfig().Has(g_UpdateArchives) || GlobalConfig().GetBool(g_UpdateArchives);
+    };
+    static bool value = [] {
+        GlobalConfig().ObserveForever(g_UpdateArchives, [] { value = fetch(); });
+        return fetch();
+    }();
+    return value;
+}
+
+// An ArchiveHost reads the archive's listing only once, when the archive is opened. After the archive was rebuilt,
+// re-open it in every panel that shows its contents so that the panels reflect the updated archive.
+static void ReloadPanelsShowingArchive(const std::string &_archive_path)
+{
+    dispatch_assert_main_queue();
+    std::vector<std::pair<PanelController *, VFSHostWeakPtr>> panels;
+    VFSHostPtr parent;
+    for( NCMainWindowController *window : NCAppDelegate.me.mainWindowControllers ) {
+        MainWindowFilePanelState *const state = window.filePanelsState;
+        for( const auto *const controllers : {&state.leftControllers, &state.rightControllers} )
+            for( PanelController *panel : *controllers ) {
+                if( !panel.isUniform )
+                    continue;
+                const auto archive = std::dynamic_pointer_cast<vfs::ArchiveHost>(panel.data.Host());
+                if( archive && archive->Parent() && archive->Parent()->IsNativeFS() &&
+                    archive->JunctionPath() == _archive_path ) {
+                    panels.emplace_back(panel, archive);
+                    parent = archive->Parent();
+                }
+            }
+    }
+    if( panels.empty() )
+        return;
+
+    dispatch_to_background([panels, parent, _archive_path] {
+        std::shared_ptr<vfs::ArchiveHost> new_host;
+        try {
+            new_host = std::make_shared<vfs::ArchiveHost>(_archive_path, parent);
+        } catch( ... ) {
+            return; // the panels will keep showing the previous listing
+        }
+        dispatch_to_main_queue([panels, new_host] {
+            for( const auto &[panel, old_host] : panels ) {
+                // Skip the panels which have navigated somewhere else in the meantime.
+                if( !panel.isUniform || panel.data.Host() != old_host.lock() )
+                    continue;
+                auto request = std::make_shared<DirectoryChangeRequest>();
+                request->RequestedDirectory = panel.data.DirectoryPathWithTrailingSlash();
+                request->VFS = new_host;
+                if( const VFSListingItem item = panel.view.item )
+                    request->RequestFocusedEntry = item.Filename();
+                [panel GoToDirWithContext:request];
+            }
+        });
+    });
+}
+
+static NSString *ArchiveCantBeUpdatedReason(const Error &_error)
+{
+    if( _error == Error{Error::POSIX, EFTYPE} )
+        return ops::localizable::ArchiveUpdatingUnsupportedFormatReason();
+    if( _error == Error{Error::POSIX, ENEEDAUTH} )
+        return ops::localizable::ArchiveUpdatingEncryptedReason();
+    return [NSString stringWithUTF8StdString:_error.LocalizedFailureReason()];
+}
+
+// Tells that the changes can't be written back into the archive and offers to reveal the changed copy, so that the
+// user's work isn't lost.
+static void ShowArchiveCantBeUpdatedAlert(const std::string &_archive_path,
+                                          const std::string &_entry_path,
+                                          const std::string &_changed_file_path,
+                                          NSString *_reason,
+                                          PanelController *_panel)
+{
+    dispatch_assert_main_queue();
+    NSString *const filename = [NSString stringWithUTF8StdStringView:utility::PathManip::Filename(_entry_path)];
+    NSString *const archive = [NSString stringWithUTF8StdStringView:utility::PathManip::Filename(_archive_path)];
+    NSString *const changed_path = [NSString stringWithUTF8StdString:_changed_file_path];
+
+    Alert *const alert = [[Alert alloc] init];
+    alert.messageText = [NSString
+        localizedStringWithFormat:NSLocalizedString(@"The changes to “%@” can’t be saved into the archive “%@”.",
+                                                    "Message shown when a file opened from an archive was changed, "
+                                                    "but the archive can't be updated"),
+                                  filename,
+                                  archive];
+    alert.informativeText = [NSString
+        localizedStringWithFormat:NSLocalizedString(@"%@\n\nThe changed file is located at:\n%@",
+                                                    "Explanation why an archive can't be updated, followed by the "
+                                                    "location of the changed file"),
+                                  _reason,
+                                  changed_path];
+    [alert addButtonWithTitle:NSLocalizedString(@"OK", "")];
+    [alert addButtonWithTitle:NSLocalizedString(@"Show in Finder", "Button revealing a file in Finder")];
+    const auto handler = ^(NSModalResponse _response) {
+      if( _response == NSAlertSecondButtonReturn )
+          [NSWorkspace.sharedWorkspace activateFileViewerSelectingURLs:@[[NSURL fileURLWithPath:changed_path]]];
+    };
+    if( NSWindow *const window = _panel.window )
+        [alert beginSheetModalForWindow:window completionHandler:handler];
+    else
+        handler([alert runModal]);
+}
+
+// Archives are read-only VFS, but a file opened from an archive on the native filesystem can still be written back by
+// rebuilding the archive. Watches the temporary copy of such a file and updates the archive once the copy changes.
+static void RegisterArchivedFileUpdating(const std::string &_entry_path,
+                                         const std::shared_ptr<vfs::ArchiveHost> &_archive_host,
+                                         const std::string &_native_path,
+                                         PanelController *_origin_controller)
+{
+    // Don't keep the archive host itself alive - it will be replaced by a new one once the archive gets updated.
+    const VFSHostPtr archive_parent = _archive_host->Parent();
+    const bool on_native_fs = archive_parent && archive_parent->IsNativeFS();
+    const std::string archive_path{_archive_host->JunctionPath()};
+    __weak PanelController *weak_origin_controller = _origin_controller;
+
+    const auto on_file_change = [=] {
+        dispatch_assert_main_queue();
+        if( !UpdateArchivesOnFileChanges() )
+            return;
+
+        if( !on_native_fs ) {
+            ShowArchiveCantBeUpdatedAlert(
+                archive_path,
+                _entry_path,
+                _native_path,
+                NSLocalizedString(@"Only archives located on the disks of this Mac can be updated.",
+                                  "Explanation why an archive on a network location can't be updated"),
+                weak_origin_controller);
+            return;
+        }
+
+        // Check the archive in the background - it requires reading the file.
+        dispatch_to_background([=] {
+            const std::expected<void, Error> can_update = vfs::arc::CanReplaceFilesInArchive(archive_path);
+            dispatch_to_main_queue([=] {
+                PanelController *const controller = weak_origin_controller;
+                if( !can_update ) {
+                    ShowArchiveCantBeUpdatedAlert(archive_path,
+                                                  _entry_path,
+                                                  _native_path,
+                                                  ArchiveCantBeUpdatedReason(can_update.error()),
+                                                  controller);
+                    return;
+                }
+
+                // Run the operation in the panel's window, or in any window if that panel was closed meanwhile.
+                NCMainWindowController *window_controller = controller.mainWindowController;
+                if( !window_controller && !NCAppDelegate.me.mainWindowControllers.empty() )
+                    window_controller = NCAppDelegate.me.mainWindowControllers.front();
+                if( !window_controller )
+                    return;
+
+                const auto op =
+                    std::make_shared<ops::ArchiveUpdating>(archive_path, _entry_path, _native_path, archive_parent);
+                op->ObserveUnticketed(ops::Operation::NotifyAboutCompletion, [archive_path] {
+                    dispatch_to_main_queue([archive_path] { ReloadPanelsShowingArchive(archive_path); });
+                });
+                [window_controller enqueueOperation:op];
+            });
+        });
+    };
+
+    auto &sentinel = TemporaryNativeFileChangesSentinel::Instance();
+    sentinel.WatchFile(_native_path, on_file_change, UploadingCheckDelay(), UploadingDropDelay());
+}
+
 static void RegisterRemoteFileUploading(const std::string &_original_path,
                                         const VFSHostPtr &_original_vfs,
                                         const std::string &_native_path,
@@ -69,8 +246,12 @@ static void RegisterRemoteFileUploading(const std::string &_original_path,
     if( _original_vfs->IsNativeFS() )
         return; // no reason to watch files from native fs
 
-    if( !_original_vfs->IsWritable() )
+    if( !_original_vfs->IsWritable() ) {
+        // Archives can't be written to directly, but they can be rebuilt with the changed file inside.
+        if( const auto archive = std::dynamic_pointer_cast<vfs::ArchiveHost>(_original_vfs) )
+            RegisterArchivedFileUpdating(_original_path, archive, _native_path, _origin_controller);
         return; // no reason to watch file we can't upload then
+    }
 
     __weak PanelController *weak_origin_controller = _origin_controller;
     const VFSHostWeakPtr weak_host = _original_vfs;

@@ -456,4 +456,32 @@ NSString *LinkCreatingHardlinkTitle()
     return NSLocalizedString(@"Creating a new hard link", "");
 }
 
+NSString *ArchiveUpdatingTitle()
+{
+    return NSLocalizedString(@"Updating “%@” in “%@”",
+                             "Title of the operation that writes a changed file back into an archive");
+}
+
+NSString *ArchiveUpdatingFailedMessage()
+{
+    return NSLocalizedString(@"Failed to update the archive", "");
+}
+
+NSString *ArchiveUpdatingUnsupportedFormatReason()
+{
+    return NSLocalizedString(@"This archive format can’t be updated. Only ZIP, 7z and tar archives, optionally "
+                             @"compressed with gzip, bzip2, xz, zstd or lz4, are supported.",
+                             "");
+}
+
+NSString *ArchiveUpdatingEncryptedReason()
+{
+    return NSLocalizedString(@"Password-protected archives can’t be updated.", "");
+}
+
+NSString *ArchiveUpdatingEntryNotFoundReason()
+{
+    return NSLocalizedString(@"The file is no longer present in the archive.", "");
+}
+
 } // namespace nc::ops::localizable

@@ -10,6 +10,7 @@
 #include "PoolView.mm"
 #include "PoolViewController.mm"
 #include "StatisticsFormatter.mm"
+#include "ArchiveUpdating/ArchiveUpdating.mm"
 #include "AttrsChanging/AttrsChanging.mm"
 #include "AttrsChanging/AttrsChangingDialog.mm"
 #include "BatchRenaming/BatchRenaming.mm"

@@ -1,3 +1,4 @@
+#include "ArchiveUpdater_UT.cpp"
 #include "EasyOps_UT.cpp"
 #include "FileWindow_UT.cpp"
 #include "Host_UT.cpp"

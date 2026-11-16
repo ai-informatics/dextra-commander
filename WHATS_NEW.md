@@ -5,6 +5,7 @@
 - New: Open With picker. Press `Esc` in a file panel to choose an application for the selected items from a compact, keyboard-driven list of recently used applications, or type to search through all installed ones.
 - Network shares can now be mounted on a non-standard port by specifying the server as `host:port`, for example `nas.local:4455`.
 - Leading and trailing slashes in network share names are now ignored, so `/video/` and `video` refer to the same share.
+- New: changes to files opened from archives are now saved back into the archive. Supported formats are ZIP, 7z and tar, including tar.gz, tar.bz2, tar.xz, tar.zst and tar.lz4. The behavior can be turned off in Settings > General.
 
 ## Version 1.9.0 (1 Nov 2026)
 - Updated for macOS Golden Gate.

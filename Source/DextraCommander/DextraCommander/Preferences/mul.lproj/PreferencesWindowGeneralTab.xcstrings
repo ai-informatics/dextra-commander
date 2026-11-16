@@ -49,6 +49,54 @@
         }
       }
     },
+    "ArC-cl-Upd.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Save changes to files opened from archives\"; ObjectID = \"ArC-cl-Upd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Save changes to files opened from archives"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранять изменения в файлах, открытых из архивов"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将对从归档中打开的文件所做的更改存回归档"
+          }
+        }
+      }
+    },
+    "ArL-cl-Upd.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Archives:\"; ObjectID = \"ArL-cl-Upd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Archives:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Архивы:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "归档："
+          }
+        }
+      }
+    },
     "Geu-Lq-Yub.title" : {
       "comment" : "Class = \"NSButtonCell\"; title = \"Reset\"; ObjectID = \"Geu-Lq-Yub\";",
       "extractionState" : "extracted_with_value",

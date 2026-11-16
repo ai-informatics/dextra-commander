@@ -295,6 +295,14 @@
              * copy of VFS file. Measured from making of shadow copy or from the it's last change.
              */
             "vfsShadowUploadObservationDropDelay": 3600000,
+
+            /**
+             * Whether to write changes of a file opened from an archive back into that archive.
+             * The archive gets rebuilt with the changed file. Only ZIP, 7z and tar archives
+             * (optionally compressed with gzip, bzip2, xz, zstd or lz4) located on a native
+             * filesystem can be updated.
+             */
+            "updateArchivesOnFileChanges": true,
             
             /**
              * Maximum amount of concurrent file operation running simultaneously in a single window.

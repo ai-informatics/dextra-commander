@@ -12,6 +12,7 @@ On top of everything Nimble Commander offers, Dextra Commander adds:
 
 - **Open With picker.** Press `Esc` in a file panel to open the selected items with any application, right from the keyboard: pick one of the recently used applications or type to search through all installed ones.
 - **Custom ports for network shares.** Connect to SMB servers listening on a non-standard port by entering the server as `host:port`, e.g. `nas.local:4455`.
+- **Editing files inside archives.** Open a file from a ZIP, 7z or tar archive, edit and save it, and Dextra Commander writes the changes back into the archive.
 
 See [WHATS_NEW.md](WHATS_NEW.md) for the full list of changes and [Help.md](Docs/Help.md) for details.
 

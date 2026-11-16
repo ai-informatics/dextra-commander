@@ -1023,6 +1023,22 @@
         }
       }
     },
+    "Failed to update the archive" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось обновить архив"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法更新归档"
+          }
+        }
+      }
+    },
     "Failed to write a file" : {
       "localizations" : {
         "ru" : {
@@ -1117,6 +1133,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "覆盖"
+          }
+        }
+      }
+    },
+    "Password-protected archives can’t be updated." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Архивы, защищённые паролем, нельзя обновить."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法更新受密码保护的归档。"
           }
         }
       }
@@ -1283,6 +1315,38 @@
         }
       }
     },
+    "The file is no longer present in the archive." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этого файла больше нет в архиве."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "归档中已不存在此文件。"
+          }
+        }
+      }
+    },
+    "This archive format can’t be updated. Only ZIP, 7z and tar archives, optionally compressed with gzip, bzip2, xz, zstd or lz4, are supported." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот формат архива нельзя обновить. Поддерживаются только архивы ZIP, 7z и tar, в том числе сжатые gzip, bzip2, xz, zstd или lz4."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法更新此归档格式。仅支持 ZIP、7z 和 tar 归档（可使用 gzip、bzip2、xz、zstd 或 lz4 压缩）。"
+          }
+        }
+      }
+    },
     "Unlock" : {
       "localizations" : {
         "ru" : {
@@ -1295,6 +1359,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "解锁"
+          }
+        }
+      }
+    },
+    "Updating “%@” in “%@”" : {
+      "comment" : "Title of the operation that writes a changed file back into an archive",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновление «%@» в «%@»"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在更新“%2$@”中的“%1$@”"
           }
         }
       }

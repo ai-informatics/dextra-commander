@@ -437,6 +437,29 @@
         }
       }
     },
+    "%@\n\nThe changed file is located at:\n%@" : {
+      "comment" : "Explanation why an archive can't be updated, followed by the location of the changed file",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@\n\nThe changed file is located at:\n%2$@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\n\nИзменённый файл находится здесь:\n%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\n\n更改后的文件位于：\n%@"
+          }
+        }
+      }
+    },
     "%@ available" : {
       "comment" : "Panels bottom volume bar, showing amount of bytes available",
       "localizations" : {
@@ -939,6 +962,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "删除标签"
+          }
+        }
+      }
+    },
+    "Dextra Commander will copy them to a temporary location before they can be opened." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dextra Commander 会先将它们拷贝到临时位置，然后才能打开。"
+          }
+        }
+      }
+    },
+    "Dextra Commander will create a copy in a temporary location before it can be opened." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dextra Commander 会先在临时位置创建副本，然后才能打开。"
           }
         }
       }
@@ -2165,26 +2208,6 @@
         }
       }
     },
-    "Dextra Commander will copy them to a temporary location before they can be opened." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dextra Commander 会先将它们拷贝到临时位置，然后才能打开。"
-          }
-        }
-      }
-    },
-    "Dextra Commander will create a copy in a temporary location before it can be opened." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dextra Commander 会先在临时位置创建副本，然后才能打开。"
-          }
-        }
-      }
-    },
     "No" : {
       "localizations" : {
         "ru" : {
@@ -2262,6 +2285,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "好"
+          }
+        }
+      }
+    },
+    "Only archives located on the disks of this Mac can be updated." : {
+      "comment" : "Explanation why an archive on a network location can't be updated",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновлять можно только архивы, расположенные на дисках этого Mac."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只能更新位于此 Mac 磁盘上的归档。"
           }
         }
       }
@@ -2757,6 +2797,23 @@
         }
       }
     },
+    "Show in Finder" : {
+      "comment" : "Button revealing a file in Finder",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать в Finder"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在访达中显示"
+          }
+        }
+      }
+    },
     "Show Panels" : {
       "comment" : "Menu item for showing panels",
       "localizations" : {
@@ -2991,6 +3048,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "应用程序有正在运行的操作。是否要停止所有操作并退出？"
+          }
+        }
+      }
+    },
+    "The changes to “%@” can’t be saved into the archive “%@”." : {
+      "comment" : "Message shown when a file opened from an archive was changed, but the archive can't be updated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The changes to “%1$@” can’t be saved into the archive “%2$@”."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Изменения в «%@» нельзя сохранить в архив «%@»."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法将对“%1$@”的更改存储到归档“%2$@”中。"
           }
         }
       }

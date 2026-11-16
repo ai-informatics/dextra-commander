@@ -624,7 +624,8 @@ Currently, the following virtual filesystems are supported:
 
 - **Archives and Compressed files**  
   File types include ar, bz2, bzip2, cab, cpgz, cpio, gz, gzip, iso, jar, lha, lz, lzma, lzo, lz4,  mtree, pax, rar, tar, xar, xz, z, zip, zst, 7z.
-  Archives can be opened in read-only mode, and modifications are not allowed.
+  Archives are opened in read-only mode: items can't be added, renamed or deleted inside an archive.
+  However, when a file opened from an archive is changed and saved in an external application, Dextra Commander writes the changes back into the archive (see [Saving Changes into Archives](#saving-changes-into-archives)).
   Paths of archived folders will include a prefix derived from the archive’s own path.
 - **Network protocols**
   - FTP  
@@ -642,6 +643,37 @@ Currently, the following virtual filesystems are supported:
   This VFS displays all processes running on the computer as files in a folder.
   Each file represents a process and contains textual information about that process.
   Deleting a file from this VFS will terminate the corresponding process.
+
+## Saving Changes into Archives
+You can edit a file stored inside an archive without unpacking the archive first:
+
+1. Navigate into the archive and open the file, for example with `Return`, the `Open With` menu, or an external editor via `F4`.
+2. Edit the file and save it in that application.
+3. Dextra Commander detects the change and rebuilds the archive with the updated file inside.
+   The progress is shown like for any other file operation, and the panels showing the archive are refreshed once it's done.
+
+Every subsequent save updates the archive again.
+The archive keeps its format, compression, permissions and all other files.
+The new archive is first written into a temporary file next to the original one, which then replaces the original, so the archive is never left half-written, even if the update fails or gets cancelled.
+Rebuilding means that every file in the archive gets decompressed and compressed again, so updating a large archive may take a while.
+
+The following archives can be updated:
+
+| Format | Extensions                                                        |
+| ------ | ----------------------------------------------------------------- |
+| ZIP    | `.zip`                                                            |
+| 7-Zip  | `.7z`                                                             |
+| tar    | `.tar`, `.tar.gz` / `.tgz`, `.tar.bz2`, `.tar.xz`, `.tar.zst`, `.tar.lz4` |
+
+The changes can't be saved into:
+
+- other formats, such as RAR, CAB, LHA or ISO images;
+- password-protected archives;
+- archives located on network storage (FTP, SFTP, WebDAV) or inside other archives.
+
+In these cases Dextra Commander tells you that the archive can't be updated and shows where the changed copy of the file is stored, so your changes aren't lost.
+
+To turn this behavior off, uncheck `Save changes to files opened from archives` in `Dextra Commander > Settings > General`.
 
 # External Editors
 You can configure a list of editor applications in the `Settings` dialog.

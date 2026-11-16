@@ -3,6 +3,7 @@
 #include "PoolEnqueueFilter.cpp"
 #include "Progress.cpp"
 #include "Statistics.cpp"
+#include "ArchiveUpdating/ArchiveUpdatingJob.cpp"
 #include "AttrsChanging/AttrsChangingJob.cpp"
 #include "BatchRenaming/BatchRenamingJob.cpp"
 #include "Compression/CompressionJob.cpp"

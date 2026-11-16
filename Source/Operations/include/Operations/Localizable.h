@@ -95,4 +95,10 @@ NSString *LinkCreatingNewSymlinkTitle();
 NSString *LinkAlteringSymlinkTitle();
 NSString *LinkCreatingHardlinkTitle();
 
+NSString *ArchiveUpdatingTitle(); // a format with two arguments: the file name and the archive name
+NSString *ArchiveUpdatingFailedMessage();
+NSString *ArchiveUpdatingUnsupportedFormatReason();
+NSString *ArchiveUpdatingEncryptedReason();
+NSString *ArchiveUpdatingEntryNotFoundReason();
+
 } // namespace nc::ops::localizable

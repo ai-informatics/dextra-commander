@@ -67,6 +67,27 @@
                         <action selector="OnFSAccessReset:" target="-2" id="qcr-xq-bMK"/>
                     </connections>
                 </button>
+                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ArL-bl-Upd">
+                    <rect key="frame" x="18" y="45" width="304" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="ArL-wd-Upd"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Archives:" id="ArL-cl-Upd">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="ArC-hk-Upd">
+                    <rect key="frame" x="323" y="45" width="294" height="16"/>
+                    <buttonCell key="cell" type="check" title="Save changes to files opened from archives" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ArC-cl-Upd">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-3" name="value" keyPath="self.delegate.config.filePanel.operations.updateArchivesOnFileChanges" id="ArC-bd-Upd"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="30" secondAttribute="trailing" constant="20" symbolic="YES" id="7El-SZ-fOn"/>
@@ -81,6 +102,12 @@
                 <constraint firstItem="30" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="sCH-9h-gF7"/>
                 <constraint firstItem="30" firstAttribute="leading" secondItem="55" secondAttribute="trailing" constant="8" symbolic="YES" id="tQd-hJ-HV9"/>
                 <constraint firstItem="30" firstAttribute="baseline" secondItem="55" secondAttribute="baseline" id="wgf-ND-KF3"/>
+                <constraint firstItem="ArL-bl-Upd" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="ArK-ld-Upd"/>
+                <constraint firstItem="ArL-bl-Upd" firstAttribute="trailing" secondItem="mE6-dr-OKl" secondAttribute="trailing" id="ArK-tr-Upd"/>
+                <constraint firstItem="ArL-bl-Upd" firstAttribute="top" secondItem="mE6-dr-OKl" secondAttribute="bottom" constant="16" id="ArK-tp-Upd"/>
+                <constraint firstItem="ArC-hk-Upd" firstAttribute="leading" secondItem="8tk-ZS-HXz" secondAttribute="leading" constant="2" id="ArK-cl-Upd"/>
+                <constraint firstItem="ArC-hk-Upd" firstAttribute="baseline" secondItem="ArL-bl-Upd" secondAttribute="baseline" id="ArK-bs-Upd"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ArC-hk-Upd" secondAttribute="trailing" constant="20" symbolic="YES" id="ArK-ct-Upd"/>
             </constraints>
             <point key="canvasLocation" x="79" y="118"/>
         </customView>
