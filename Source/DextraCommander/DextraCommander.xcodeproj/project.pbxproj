@@ -244,9 +244,9 @@
 		CF5DE0DA2584186600604DEE /* libDextraCommanderCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5DE07E2583E73300604DEE /* libDextraCommanderCommon.a */; };
 		CF669D662EF01757001B7FA5 /* PanelGalleryCentralView.h in Headers */ = {isa = PBXBuildFile; fileRef = CF669D642EF01757001B7FA5 /* PanelGalleryCentralView.h */; };
 		CF669D672EF01757001B7FA5 /* PanelGalleryCentralView.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF669D652EF01757001B7FA5 /* PanelGalleryCentralView.mm */; };
-		CF67F1B52952034200B92944 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = CF67F19A2952034200B92944 /* Icon.icns */; };
-		CF67F1B62952034200B92944 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = CF67F19A2952034200B92944 /* Icon.icns */; };
-		CF67F1B72952034200B92944 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = CF67F19A2952034200B92944 /* Icon.icns */; };
+		CF67F1B52952034200B92944 /* DextraCommander.icon in Resources */ = {isa = PBXBuildFile; fileRef = CF67F19A2952034200B92944 /* DextraCommander.icon */; };
+		CF67F1B62952034200B92944 /* DextraCommander.icon in Resources */ = {isa = PBXBuildFile; fileRef = CF67F19A2952034200B92944 /* DextraCommander.icon */; };
+		CF67F1B72952034200B92944 /* DextraCommander.icon in Resources */ = {isa = PBXBuildFile; fileRef = CF67F19A2952034200B92944 /* DextraCommander.icon */; };
 		CF67F1BF2954689000B92944 /* Theme_UT.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF67F1BE2954689000B92944 /* Theme_UT.mm */; };
 		CF67F1C02954BF9400B92944 /* PreferencesWindowThemesTabAutomaticSwitchingSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF67F1C52954BF9400B92944 /* PreferencesWindowThemesTabAutomaticSwitchingSheet.xib */; };
 		CF67F1C12954BF9400B92944 /* PreferencesWindowThemesTabAutomaticSwitchingSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF67F1C52954BF9400B92944 /* PreferencesWindowThemesTabAutomaticSwitchingSheet.xib */; };
@@ -1069,7 +1069,7 @@
 		CF5FE80D1E16461600CD83B4 /* PanelListViewTableHeaderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PanelListViewTableHeaderView.mm; path = DextraCommander/States/FilePanels/List/PanelListViewTableHeaderView.mm; sourceTree = SOURCE_ROOT; };
 		CF669D642EF01757001B7FA5 /* PanelGalleryCentralView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PanelGalleryCentralView.h; path = DextraCommander/States/FilePanels/Gallery/PanelGalleryCentralView.h; sourceTree = "<group>"; };
 		CF669D652EF01757001B7FA5 /* PanelGalleryCentralView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PanelGalleryCentralView.mm; path = DextraCommander/States/FilePanels/Gallery/PanelGalleryCentralView.mm; sourceTree = "<group>"; };
-		CF67F19A2952034200B92944 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = DextraCommander/Resources/Icon.icns; sourceTree = "<group>"; };
+		CF67F19A2952034200B92944 /* DextraCommander.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; name = DextraCommander.icon; path = DextraCommander/Resources/DextraCommander.icon; sourceTree = "<group>"; };
 		CF67F1BE2954689000B92944 /* Theme_UT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Theme_UT.mm; path = DextraCommander/Tests/Theme_UT.mm; sourceTree = "<group>"; };
 		CF67F1C42954BF9400B92944 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindowThemesTabAutomaticSwitchingSheet.xib; sourceTree = "<group>"; };
 		CF69CF961DA2003C00992B84 /* RoutedIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RoutedIO.xcodeproj; path = ../RoutedIO/RoutedIO.xcodeproj; sourceTree = "<group>"; };
@@ -2058,7 +2058,7 @@
 		CFB5989A196E38C700D4C108 /* Art */ = {
 			isa = PBXGroup;
 			children = (
-				CF67F19A2952034200B92944 /* Icon.icns */,
+				CF67F19A2952034200B92944 /* DextraCommander.icon */,
 				CFDF449F1D2B990A0062F7AD /* Media.xcassets */,
 			);
 			name = Art;
@@ -2803,7 +2803,7 @@
 				CFD2F3582709D7DD00ADC852 /* PreferencesWindowPanelsTabOperationsConcurrencySheet.xib in Resources */,
 				CF4E56DC1D506BA100452912 /* FindFilesSheetController.xib in Resources */,
 				CF7C7CBF1E5C3D84002DB0E2 /* PanelViewHeaderSortPopup.xib in Resources */,
-				CF67F1B72952034200B92944 /* Icon.icns in Resources */,
+				CF67F1B72952034200B92944 /* DextraCommander.icon in Resources */,
 				CF8D0CFA1D963E1F00ADFF14 /* SpotlightSearchPopupViewController.xib in Resources */,
 				CF45CA2E1D3E3AA70074F04C /* ExternalToolParameterValueSheetController.xib in Resources */,
 				CFC762A72D3C59C7000498AA /* InfoPlist.xcstrings in Resources */,
@@ -2867,7 +2867,7 @@
 				CF4E56A31D5068CD00452912 /* PreferencesWindowExternalEditorsTab.xib in Resources */,
 				CF4E56CE1D50694200452912 /* PreferencesWindowViewerTab.xib in Resources */,
 				CF9F4B3C1ECD814800E0AF82 /* ConnectToServer.xib in Resources */,
-				CF67F1B52952034200B92944 /* Icon.icns in Resources */,
+				CF67F1B52952034200B92944 /* DextraCommander.icon in Resources */,
 				CF36DBE11F6BCDA0004A018E /* WebDAVConnectionSheetController.xib in Resources */,
 				CF9F4B111ECD7FC900E0AF82 /* PanelListViewColumnsMenu.xib in Resources */,
 				CFC762972D3C59C3000498AA /* Preferences.xcstrings in Resources */,
@@ -2944,7 +2944,7 @@
 				CF4E567E1D50669600452912 /* PreferencesWindowPanelsTab.xib in Resources */,
 				CFC762A62D3C59C7000498AA /* InfoPlist.xcstrings in Resources */,
 				CF45CA2D1D3E3AA70074F04C /* ExternalToolParameterValueSheetController.xib in Resources */,
-				CF67F1B62952034200B92944 /* Icon.icns in Resources */,
+				CF67F1B62952034200B92944 /* DextraCommander.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3719,6 +3719,7 @@
 		CF6D9998196675290077B146 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = DextraCommander;
 				CODE_SIGN_ENTITLEMENTS = "DextraCommander/Resources/DextraCommander-MAS.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -3739,6 +3740,7 @@
 		CF6D9999196675290077B146 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = DextraCommander;
 				CODE_SIGN_ENTITLEMENTS = "DextraCommander/Resources/DextraCommander-MAS.entitlements";
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				CODE_SIGN_STYLE = Manual;
@@ -3758,6 +3760,7 @@
 		CFA53A6B1D433E2A00C562A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = DextraCommander;
 				CODE_SIGN_IDENTITY = "";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)_Unsigned";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3773,6 +3776,7 @@
 		CFA53A6C1D433E2A00C562A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = DextraCommander;
 				CODE_SIGN_IDENTITY = "";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)_Unsigned";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3802,6 +3806,7 @@
 		CFC5122F16C4BD3D00D247EE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = DextraCommander;
 				CODE_SIGN_ENTITLEMENTS = "DextraCommander/Resources/DextraCommander-NonMAS.entitlements";
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
@@ -3822,6 +3827,7 @@
 		CFC5123016C4BD3D00D247EE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = DextraCommander;
 				CODE_SIGN_ENTITLEMENTS = "DextraCommander/Resources/DextraCommander-NonMAS.entitlements";
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;

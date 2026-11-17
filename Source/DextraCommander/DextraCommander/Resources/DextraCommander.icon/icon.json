@@ -1,0 +1,75 @@
+{
+  "fill-specializations" : [
+    {
+      "value" : {
+        "linear-gradient" : [
+          "srgb:1.00000,0.70196,0.27843,1.00000",
+          "srgb:1.00000,0.41569,0.23922,1.00000"
+        ]
+      }
+    },
+    {
+      "appearance" : "dark",
+      "value" : {
+        "linear-gradient" : [
+          "srgb:0.54118,0.22745,0.07059,1.00000",
+          "srgb:0.35294,0.12157,0.03137,1.00000"
+        ]
+      }
+    }
+  ],
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "image-name" : "5-wordmark.svg",
+          "name" : "5-wordmark"
+        },
+        {
+          "image-name" : "4-selection.svg",
+          "name" : "4-selection"
+        },
+        {
+          "image-name" : "3-rows.svg",
+          "name" : "3-rows"
+        }
+      ],
+      "name" : "Content",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.3
+      }
+    },
+    {
+      "layers" : [
+        {
+          "image-name" : "2-right-pane.svg",
+          "name" : "2-right-pane"
+        },
+        {
+          "image-name" : "1-left-pane.svg",
+          "name" : "1-left-pane"
+        }
+      ],
+      "name" : "Letter",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.3
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
