@@ -25,7 +25,7 @@ struct Item {
 struct Format {
     std::string name;
     std::function<int(archive *)> set_format;
-    std::function<int(archive *)> add_filter = {}; // optional
+    std::function<int(archive *)> add_filter; // optional
     int expected_format_base;
     int expected_filter;
 };
