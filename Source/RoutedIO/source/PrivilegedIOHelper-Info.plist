@@ -12,7 +12,7 @@
 	<string>1.0</string>
 	<key>SMAuthorizedClients</key>
 	<array>
-		<string>identifier com.irkhin.DextraCommander and certificate leaf[subject.CN] = "Developer ID Application: Mikhail Kazakov (AC5SJT236H)"</string>
+		<string>anchor apple generic and identifier "com.irkhin.DextraCommander" and certificate leaf[subject.OU] = "727BX8WD25"</string>
 	</array>
 </dict>
 </plist>

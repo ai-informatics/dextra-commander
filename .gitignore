@@ -215,3 +215,8 @@ xcuserdata/
 ####
 # UNKNOWN: recommended by others, but I can't discover what these files are
 #
+
+# Outputs of Scripts/build_signed.sh
+Scripts/build_signed.tmp/
+Scripts/dextra-commander-*.zip
+Scripts/dextra-commander-*.dmg

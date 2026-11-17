@@ -79,7 +79,7 @@ create-dmg \
  --icon-size 128 \
  --icon "${APP_NAME}" 176 192 \
  --app-drop-link 432 192 \
- --codesign "Developer ID Application: Mikhail Kazakov (AC5SJT236H)" \
+ --codesign "Developer ID Application" \
  "${DMG_NAME}" \
  "${APP_PATH}"
 

@@ -12,10 +12,10 @@
 #include <xpc/xpc.h>
 #include <Base/CFPtr.h>
 
-// requires that identifier is right and binary is signed by me
-static const char *g_SignatureRequirement =
-    "identifier com.irkhin.DextraCommander and "
-    "certificate leaf[subject.CN] = \"Developer ID Application: Mikhail Kazakov (AC5SJT236H)\"";
+// Requires the right identifier and a binary signed by an Apple-issued certificate of the Dextra Commander team.
+// Checking the team rather than a particular certificate accepts both development and Developer ID signatures.
+static const char *g_SignatureRequirement = "anchor apple generic and identifier \"com.irkhin.DextraCommander\" and "
+                                            "certificate leaf[subject.OU] = \"727BX8WD25\"";
 
 static const char *g_ServiceName = "com.irkhin.DextraCommander.PrivilegedIOHelperV2";
 

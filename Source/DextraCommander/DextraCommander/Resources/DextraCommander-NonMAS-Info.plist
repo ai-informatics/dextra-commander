@@ -85,7 +85,7 @@ All rights reserved.</string>
 	<key>SMPrivilegedExecutables</key>
 	<dict>
 		<key>com.irkhin.DextraCommander.PrivilegedIOHelperV2</key>
-		<string>identifier com.irkhin.DextraCommander.PrivilegedIOHelperV2 and certificate leaf[subject.CN] = &quot;Developer ID Application: Mikhail Kazakov (AC5SJT236H)&quot;</string>
+		<string>anchor apple generic and identifier &quot;com.irkhin.DextraCommander.PrivilegedIOHelperV2&quot; and certificate leaf[subject.OU] = &quot;727BX8WD25&quot;</string>
 	</dict>
 	<key>SUFeedURL</key>
 	<string>https://github.com/ai-informatics/dextra-commander/releases/latest/download/appcast.xml</string>

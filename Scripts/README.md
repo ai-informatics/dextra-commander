@@ -19,6 +19,12 @@ It also requires the codesigning certificate to be properly signed.
 ## `build_release.sh`  
 Same a `build_nightly.sh`, but creates a release build. 
 
+## `build_signed.sh [output directory]`
+Builds Dextra Commander with the `DextraCommander-NonMAS` scheme / `Release` configuration, signs the bundle from the inside out with a certificate of the Dextra Commander team and packages it into a `.zip` archive and, where `hdiutil` is available, a `.dmg` image.  
+The certificate is picked from the login keychain automatically: `Developer ID Application` is preferred, otherwise `Apple Development` is used. Builds signed with `Apple Development` run on your own Macs, but Gatekeeper rejects them on other Macs until they are signed with Developer ID and notarized.  
+The team can be changed with the `DC_TEAM_ID` environment variable, a particular certificate can be forced with `DC_SIGNING_IDENTITY`. The privileged helper only trusts builds signed by the team specified in its signing requirements.  
+`xcodebuild` must be available in the environment in order for this script to run.  
+
 ## `build_unsigned.sh`
 Builds Dextra Commander with the `DextraCommander-Unsigned` scheme / `Release` configuration and packages the runnable build into a `.dmg` image.  
 `xcodebuild`, `xcpretty` and `create-dmg` must be available in the environment in order for this script to run.  
