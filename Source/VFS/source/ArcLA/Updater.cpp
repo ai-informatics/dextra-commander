@@ -20,7 +20,7 @@ namespace nc::vfs::arc {
 
 namespace {
 
-constexpr size_t g_BufferSize = 256 * 1024;
+constexpr size_t g_BufferSize = size_t{256} * 1024;
 
 struct ReaderDeleter {
     void operator()(archive *_a) const noexcept { archive_read_free(_a); }
@@ -39,7 +39,7 @@ struct WriteSettings {
 
 Error PosixError(int _code) noexcept
 {
-    return Error{Error::POSIX, _code};
+    return {Error::POSIX, _code};
 }
 
 // Converts the error state of a libarchive object into an Error, falling back to EIO when libarchive has no errno.
@@ -338,7 +338,7 @@ std::expected<void, Error> CanReplaceFilesInArchive(std::string_view _archive_pa
     if( const std::expected<WriteSettings, Error> settings = DeduceWriteSettings(reader->get()); !settings )
         return std::unexpected(settings.error());
 
-    if( archive_entry_is_encrypted(*first) || archive_read_has_encrypted_entries(reader->get()) > 0 )
+    if( archive_entry_is_encrypted(*first) != 0 || archive_read_has_encrypted_entries(reader->get()) > 0 )
         return std::unexpected(PosixError(ENEEDAUTH));
 
     return {};
@@ -390,7 +390,7 @@ std::expected<void, Error> ReplaceFileInArchive(std::string_view _archive_path,
             return std::unexpected(PosixError(ECANCELED));
 
         // Encrypted entries can't be decrypted and re-encrypted reliably.
-        if( archive_entry_is_encrypted(current) )
+        if( archive_entry_is_encrypted(current) != 0 )
             return std::unexpected(PosixError(ENEEDAUTH));
 
         const bool is_target = archive_entry_filetype(current) == AE_IFREG &&
@@ -430,7 +430,8 @@ std::expected<void, Error> ReplaceFileInArchive(std::string_view _archive_path,
         return std::unexpected(PosixError(errno));
 
     // Carry over the permissions and the extended attributes of the original archive.
-    fchmod(temp_file.FD(), archive_st.st_mode & ALLPERMS);
+    if( fchmod(temp_file.FD(), archive_st.st_mode & ALLPERMS) != 0 )
+        return std::unexpected(PosixError(errno));
     if( const ScopedFD original{open(archive_path->c_str(), O_RDONLY | O_CLOEXEC)}; original.Get() >= 0 )
         fcopyfile(original.Get(), temp_file.FD(), nullptr, COPYFILE_XATTR);
     temp_file.CloseFD();

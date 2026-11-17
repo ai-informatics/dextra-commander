@@ -182,7 +182,7 @@ static void RegisterArchivedFileUpdating(const std::string &_entry_path,
                                          PanelController *_origin_controller)
 {
     // Don't keep the archive host itself alive - it will be replaced by a new one once the archive gets updated.
-    const VFSHostPtr archive_parent = _archive_host->Parent();
+    const VFSHostPtr &archive_parent = _archive_host->Parent();
     const bool on_native_fs = archive_parent && archive_parent->IsNativeFS();
     const std::string archive_path{_archive_host->JunctionPath()};
     __weak PanelController *weak_origin_controller = _origin_controller;

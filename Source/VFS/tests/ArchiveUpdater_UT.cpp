@@ -25,7 +25,7 @@ struct Item {
 struct Format {
     std::string name;
     std::function<int(archive *)> set_format;
-    std::function<int(archive *)> add_filter; // optional
+    std::function<int(archive *)> add_filter = {}; // optional
     int expected_format_base;
     int expected_filter;
 };
@@ -42,32 +42,44 @@ static std::vector<Item> Items()
 
 static std::vector<Format> SupportedFormats()
 {
-    const auto none = std::function<int(archive *)>{};
     return {
-        {"zip", archive_write_set_format_zip, none, ARCHIVE_FORMAT_ZIP, ARCHIVE_FILTER_NONE},
-        {"7z", archive_write_set_format_7zip, none, ARCHIVE_FORMAT_7ZIP, ARCHIVE_FILTER_NONE},
-        {"tar", archive_write_set_format_pax_restricted, none, ARCHIVE_FORMAT_TAR, ARCHIVE_FILTER_NONE},
-        {"tar.gz",
-         archive_write_set_format_pax_restricted,
-         archive_write_add_filter_gzip,
-         ARCHIVE_FORMAT_TAR,
-         ARCHIVE_FILTER_GZIP},
-        {"tar.bz2",
-         archive_write_set_format_pax_restricted,
-         archive_write_add_filter_bzip2,
-         ARCHIVE_FORMAT_TAR,
-         ARCHIVE_FILTER_BZIP2},
-        {"tar.xz", archive_write_set_format_ustar, archive_write_add_filter_xz, ARCHIVE_FORMAT_TAR, ARCHIVE_FILTER_XZ},
-        {"tar.zst",
-         archive_write_set_format_gnutar,
-         archive_write_add_filter_zstd,
-         ARCHIVE_FORMAT_TAR,
-         ARCHIVE_FILTER_ZSTD},
-        {"tar.lz4",
-         archive_write_set_format_pax_restricted,
-         archive_write_add_filter_lz4,
-         ARCHIVE_FORMAT_TAR,
-         ARCHIVE_FILTER_LZ4},
+        {.name = "zip",
+         .set_format = archive_write_set_format_zip,
+         .expected_format_base = ARCHIVE_FORMAT_ZIP,
+         .expected_filter = ARCHIVE_FILTER_NONE},
+        {.name = "7z",
+         .set_format = archive_write_set_format_7zip,
+         .expected_format_base = ARCHIVE_FORMAT_7ZIP,
+         .expected_filter = ARCHIVE_FILTER_NONE},
+        {.name = "tar",
+         .set_format = archive_write_set_format_pax_restricted,
+         .expected_format_base = ARCHIVE_FORMAT_TAR,
+         .expected_filter = ARCHIVE_FILTER_NONE},
+        {.name = "tar.gz",
+         .set_format = archive_write_set_format_pax_restricted,
+         .add_filter = archive_write_add_filter_gzip,
+         .expected_format_base = ARCHIVE_FORMAT_TAR,
+         .expected_filter = ARCHIVE_FILTER_GZIP},
+        {.name = "tar.bz2",
+         .set_format = archive_write_set_format_pax_restricted,
+         .add_filter = archive_write_add_filter_bzip2,
+         .expected_format_base = ARCHIVE_FORMAT_TAR,
+         .expected_filter = ARCHIVE_FILTER_BZIP2},
+        {.name = "tar.xz",
+         .set_format = archive_write_set_format_ustar,
+         .add_filter = archive_write_add_filter_xz,
+         .expected_format_base = ARCHIVE_FORMAT_TAR,
+         .expected_filter = ARCHIVE_FILTER_XZ},
+        {.name = "tar.zst",
+         .set_format = archive_write_set_format_gnutar,
+         .add_filter = archive_write_add_filter_zstd,
+         .expected_format_base = ARCHIVE_FORMAT_TAR,
+         .expected_filter = ARCHIVE_FILTER_ZSTD},
+        {.name = "tar.lz4",
+         .set_format = archive_write_set_format_pax_restricted,
+         .add_filter = archive_write_add_filter_lz4,
+         .expected_format_base = ARCHIVE_FORMAT_TAR,
+         .expected_filter = ARCHIVE_FILTER_LZ4},
     };
 }
 
