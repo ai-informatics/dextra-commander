@@ -1,6 +1,6 @@
 # What's New in Dextra Commander
 
-## Unreleased
+## Version 2.0.0 (17 Nov 2026)
 - The project is now called Dextra Commander, a fork of Nimble Commander.
 - New app icon, designed for the Liquid Glass look of macOS, with dark and tinted variants.
 - New: Open With picker. Press `Esc` in a file panel to choose an application for the selected items from a compact, keyboard-driven list of recently used applications, or type to search through all installed ones.

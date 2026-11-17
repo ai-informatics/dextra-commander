@@ -218,5 +218,6 @@ xcuserdata/
 
 # Outputs of Scripts/build_signed.sh
 Scripts/build_signed.tmp/
+Scripts/build_help.tmp/
 Scripts/dextra-commander-*.zip
 Scripts/dextra-commander-*.dmg

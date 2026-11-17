@@ -59,7 +59,7 @@ mkdir -p "${BUILD_DIR}"
 
 # Refresh Help.pdf if the tools to build it are available, otherwise keep the existing one.
 if [ -x "$(command -v pandoc)" ] && [ -x "$(command -v xelatex)" ]; then
-    "${SCRIPTS_DIR}/build_help.sh"
+    (cd "${SCRIPTS_DIR}" && ./build_help.sh) # the script expects to be run from its own directory
     cp -f "${SCRIPTS_DIR}/build_help.tmp/Help.pdf" "${ROOT_DIR}/Source/DextraCommander/DextraCommander/Resources/Help.pdf"
 else
     echo "pandoc or xelatex is not found, keeping the existing Help.pdf."
@@ -79,6 +79,9 @@ xcodebuild \
  OBJROOT="${BUILD_DIR}" \
  -parallelizeTargets \
  build > "${BUILD_DIR}/xcodebuild.log" 2>&1 || { tail -30 "${BUILD_DIR}/xcodebuild.log"; exit 1; }
+
+# Help.pdf is tracked as an empty placeholder - put it back once it was built into the app.
+git -C "${ROOT_DIR}" checkout -- Source/DextraCommander/DextraCommander/Resources/Help.pdf 2>/dev/null || true
 
 APP_PATH=$(find "${BUILD_DIR}" -maxdepth 2 -name "Dextra Commander.app" -type d | head -1)
 if [ -z "${APP_PATH}" ]; then
@@ -110,10 +113,20 @@ VERSION=$( ${PBUDDY} -c "Print CFBundleShortVersionString" "${APP_PATH}/Contents
 BUILD=$( ${PBUDDY} -c "Print CFBundleVersion" "${APP_PATH}/Contents/Info.plist" )
 NAME="dextra-commander-${VERSION}(${BUILD})"
 
-# ZIP, preserving the signature and the extended attributes.
+# ZIP with the app, the license and where to get the source code - GPL requires both to accompany the binary.
+# ditto preserves the signature and the extended attributes.
+PACKAGE_DIR="${BUILD_DIR}/package/Dextra Commander ${VERSION}"
+mkdir -p "${PACKAGE_DIR}"
+cp -R "${APP_PATH}" "${PACKAGE_DIR}/"
+cp "${ROOT_DIR}/LICENSE.md" "${PACKAGE_DIR}/LICENSE.md"
+cat > "${PACKAGE_DIR}/Source code.txt" <<SOURCE
+Dextra Commander ${VERSION} (${BUILD}) is free software distributed under the GNU General Public License version 3,
+see LICENSE.md. The complete source code of this version is available at:
+https://github.com/ai-informatics/dextra-commander/tree/v${VERSION}
+SOURCE
 ZIP_PATH="${OUTPUT_DIR}/${NAME}.zip"
 rm -f "${ZIP_PATH}"
-ditto -c -k --sequesterRsrc --keepParent "${APP_PATH}" "${ZIP_PATH}"
+ditto -c -k --sequesterRsrc --keepParent "${PACKAGE_DIR}" "${ZIP_PATH}"
 echo "Created ${ZIP_PATH}"
 
 # DMG with a link to /Applications. It's optional: hdiutil isn't available in some restricted environments.
