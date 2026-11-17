@@ -2,6 +2,7 @@
 
 ## Unreleased
 - The project is now called Dextra Commander, a fork of Nimble Commander.
+- New app icon, designed for the Liquid Glass look of macOS, with dark and tinted variants.
 - New: Open With picker. Press `Esc` in a file panel to choose an application for the selected items from a compact, keyboard-driven list of recently used applications, or type to search through all installed ones.
 - Network shares can now be mounted on a non-standard port by specifying the server as `host:port`, for example `nas.local:4455`.
 - Leading and trailing slashes in network share names are now ignored, so `/video/` and `video` refer to the same share.
