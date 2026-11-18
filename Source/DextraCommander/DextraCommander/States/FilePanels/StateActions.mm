@@ -38,6 +38,7 @@ StateActionsMap BuildStateActionsMap(nc::config::Config &_global_config,
     add(@selector(OnWindowShowNextTab:), new ShowNextTab);
     add(@selector(OnShowTabs:), new ShowTabs);
     add(@selector(OnShowTerminal:), new ShowTerminal);
+    add(@selector(OnShowTerminalInOppositePanel:), new ShowTerminalInOppositePanel);
     add(@selector(OnSyncPanels:), new SyncPanels);
     add(@selector(OnSwapPanels:), new SwapPanels);
     add(@selector(OnFileCopyCommand:), new CopyTo{_global_config});

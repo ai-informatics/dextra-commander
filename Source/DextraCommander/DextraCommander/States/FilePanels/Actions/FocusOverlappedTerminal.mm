@@ -7,7 +7,8 @@ namespace nc::panel::actions {
 
 bool FocusOverlappedTerminal::Predicate([[maybe_unused]] MainWindowFilePanelState *_target) const
 {
-    return _target.overlappedTerminalVisible && !_target.isPanelsSplitViewHidden;
+    return (_target.overlappedTerminalVisible || _target.terminalInOppositePanel != nil) &&
+           !_target.isPanelsSplitViewHidden;
 }
 
 bool FocusOverlappedTerminal::ValidateMenuItem(MainWindowFilePanelState *_target, NSMenuItem *_item) const

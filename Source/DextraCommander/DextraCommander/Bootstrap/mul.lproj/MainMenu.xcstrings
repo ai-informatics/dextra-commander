@@ -4602,6 +4602,30 @@
           }
         }
       }
+    },
+    "TOp-pn-Trm.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Show Terminal in Opposite Panel\"; ObjectID = \"TOp-pn-Trm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show Terminal in Opposite Panel"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать терминал в соседней панели"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在另一面板中显示终端"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

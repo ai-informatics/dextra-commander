@@ -198,6 +198,10 @@ static void Perform(SEL _sel, const StateActionsMap &_map, MainWindowFilePanelSt
 {
     PERFORM;
 }
+- (IBAction)OnShowTerminalInOppositePanel:(id)sender
+{
+    PERFORM;
+}
 - (IBAction)performClose:(id)sender
 {
     PERFORM;

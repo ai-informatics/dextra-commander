@@ -478,8 +478,13 @@ static bool Has(std::span<PanelController *> _c, PanelController *_p) noexcept
 
 - (void)changeFocusedSide
 {
-    if( m_SplitView.anyCollapsedOrOverlayed )
+    if( m_SplitView.anyCollapsedOrOverlayed ) {
+        // Tab moves the focus from the panel into the terminal shown next to it.
+        if( const auto terminal = self.terminalInOppositePanel;
+            terminal && self.activePanelController == self.panelOwningTerminalInOppositePanel )
+            [terminal focusTerminal];
         return;
+    }
     if( auto cur = self.activePanelController ) {
         if( [self isLeftController:cur] )
             [self.window makeFirstResponder:m_SplitView.rightTabbedHolder.current];
@@ -521,6 +526,7 @@ static bool Has(std::span<PanelController *> _c, PanelController *_p) noexcept
     [self updateTitle];
     m_LastFocusedPanelController = controller;
     [self synchronizeOverlappedTerminalWithPanel:controller];
+    [self synchronizeTerminalInOppositePanelWithPanel:controller];
     [self markRestorableStateAsInvalid];
 }
 
@@ -711,6 +717,7 @@ static nc::config::Value EncodeUIState(MainWindowFilePanelState *_state)
     if( _panel == self.activePanelController ) {
         [self updateTitle];
         [self synchronizeOverlappedTerminalWithPanel:_panel];
+        [self synchronizeTerminalInOppositePanelWithPanel:_panel];
     }
 
     [self updateTabNameForController:_panel];
@@ -823,7 +830,7 @@ static void AskAboutStoppingRunningOperations(NSWindow *_window, std::function<v
                 return ql;
 
         if( _make_if_absent ) {
-            if( m_SplitView.anyCollapsed )
+            if( m_SplitView.anyCollapsed || self.terminalInOppositePanel )
                 return nil;
 
             const auto rc = NSMakeRect(0, 0, 100, 100);
@@ -856,7 +863,7 @@ static void AskAboutStoppingRunningOperations(NSWindow *_window, std::function<v
             return bso;
 
     if( _make_if_absent ) {
-        if( m_SplitView.anyCollapsed )
+        if( m_SplitView.anyCollapsed || self.terminalInOppositePanel )
             return nil;
 
         const auto rc = NSMakeRect(0, 0, 100, 100);
@@ -873,6 +880,84 @@ static void AskAboutStoppingRunningOperations(NSWindow *_window, std::function<v
     }
 
     return nil;
+}
+
+- (FilePanelOverlappedTerminal *)terminalInOppositePanel
+{
+    if( const auto terminal = nc::objc_cast<FilePanelOverlappedTerminal>(m_SplitView.leftOverlay) )
+        return terminal;
+    return nc::objc_cast<FilePanelOverlappedTerminal>(m_SplitView.rightOverlay);
+}
+
+// The panel on the other side of the terminal shown in place of the inactive panel - the terminal follows it.
+- (PanelController *)panelOwningTerminalInOppositePanel
+{
+    if( nc::objc_cast<FilePanelOverlappedTerminal>(m_SplitView.rightOverlay) )
+        return self.leftPanelController;
+    if( nc::objc_cast<FilePanelOverlappedTerminal>(m_SplitView.leftOverlay) )
+        return self.rightPanelController;
+    return nil;
+}
+
+- (void)toggleTerminalInOppositePanel
+{
+    if( self.terminalInOppositePanel ) {
+        [self closeTerminalInOppositePanel];
+        return;
+    }
+
+    PanelController *const panel =
+        self.activePanelController ? self.activePanelController : m_LastFocusedPanelController;
+    if( panel == nil || m_SplitView.anyCollapsed ) {
+        NSBeep();
+        return;
+    }
+
+    const auto terminal = [[FilePanelOverlappedTerminal alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
+    __weak MainWindowFilePanelState *weak_self = self;
+    __weak FilePanelOverlappedTerminal *weak_terminal = terminal;
+    terminal.onShellDied = [weak_self, weak_terminal] {
+        // The user has ended the shell, e.g. with "exit" - bring the panel back.
+        MainWindowFilePanelState *const me = weak_self;
+        FilePanelOverlappedTerminal *const dead_terminal = weak_terminal;
+        if( me && dead_terminal && me.terminalInOppositePanel == dead_terminal )
+            [me closeTerminalInOppositePanel];
+    };
+
+    if( [self isLeftController:panel] )
+        m_SplitView.rightOverlay = terminal;
+    else if( [self isRightController:panel] )
+        m_SplitView.leftOverlay = terminal;
+    else
+        return;
+
+    // An empty path makes the shell start in the home directory, e.g. when the panel shows an archive.
+    std::string working_directory;
+    if( panel.isUniform && panel.vfs->IsNativeFS() )
+        working_directory = panel.currentDirectoryPath;
+    [terminal runShell:working_directory];
+    [terminal focusTerminal];
+}
+
+- (void)closeTerminalInOppositePanel
+{
+    PanelController *const owner = self.panelOwningTerminalInOppositePanel;
+    if( nc::objc_cast<FilePanelOverlappedTerminal>(m_SplitView.rightOverlay) )
+        m_SplitView.rightOverlay = nil;
+    if( nc::objc_cast<FilePanelOverlappedTerminal>(m_SplitView.leftOverlay) )
+        m_SplitView.leftOverlay = nil;
+    if( owner )
+        [self ActivatePanelByController:owner];
+}
+
+// Makes the terminal follow its panel to another directory, unless something is running or typed in the terminal.
+- (void)synchronizeTerminalInOppositePanelWithPanel:(PanelController *)_pc
+{
+    FilePanelOverlappedTerminal *const terminal = self.terminalInOppositePanel;
+    if( terminal == nil || _pc != self.panelOwningTerminalInOppositePanel )
+        return;
+    if( _pc.isUniform && _pc.vfs->IsNativeFS() && terminal.isShellVirgin )
+        [terminal changeWorkingDirectory:_pc.currentDirectoryPath];
 }
 
 - (void)closeAttachedUI:(PanelController *)_panel

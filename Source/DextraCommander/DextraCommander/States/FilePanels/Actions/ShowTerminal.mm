@@ -27,4 +27,26 @@ void ShowTerminal::Perform(MainWindowFilePanelState *_target, [[maybe_unused]] i
         [mwc requestTerminal:path];
 }
 
+bool ShowTerminalInOppositePanel::Predicate(MainWindowFilePanelState *_target) const
+{
+    // A terminal can always be closed, but it can be opened only while both panels are shown.
+    return _target.terminalInOppositePanel != nil || (!_target.isPanelsSplitViewHidden && !_target.anyPanelCollapsed);
+}
+
+bool ShowTerminalInOppositePanel::ValidateMenuItem(MainWindowFilePanelState *_target, NSMenuItem *_item) const
+{
+    _item.title =
+        _target.terminalInOppositePanel
+            ? NSLocalizedString(@"Hide Terminal in Opposite Panel",
+                                "Menu item title for hiding the terminal shown in place of the inactive panel")
+            : NSLocalizedString(@"Show Terminal in Opposite Panel",
+                                "Menu item title for showing a terminal in place of the inactive panel");
+    return Predicate(_target);
+}
+
+void ShowTerminalInOppositePanel::Perform(MainWindowFilePanelState *_target, [[maybe_unused]] id _sender) const
+{
+    [_target toggleTerminalInOppositePanel];
+}
+
 } // namespace nc::panel::actions

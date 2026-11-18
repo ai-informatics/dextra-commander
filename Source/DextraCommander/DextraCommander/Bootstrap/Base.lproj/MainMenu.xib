@@ -526,10 +526,16 @@ DQ
                                     <action selector="OnShowToolbar:" target="-1" id="R1D-yh-leB"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show/Hide Terminal" tag="13190" keyEquivalent="o" id="wOP-H6-qux">
+                            <menuItem title="Show/Hide Terminal" tag="13190" keyEquivalent="O" id="wOP-H6-qux">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="OnShowTerminal:" target="-1" id="8m7-vW-0pQ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Terminal in Opposite Panel" tag="13195" keyEquivalent="o" id="TOp-pn-Trm">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="OnShowTerminalInOppositePanel:" target="-1" id="TOp-pn-Act"/>
                                 </connections>
                             </menuItem>
                         </items>

@@ -1,5 +1,8 @@
 # What's New in Dextra Commander
 
+## Unreleased
+- New: a terminal in the opposite panel. Press `Alt + Cmd + O` to open a terminal in place of the inactive panel, next to the files you're working with. It starts in the active panel's folder and follows it while idle. The full-window terminal has moved to `Shift + Alt + Cmd + O`.
+
 ## Version 2.0.0 (17 Nov 2026)
 - The project is now called Dextra Commander, a fork of Nimble Commander.
 - New app icon, designed for the Liquid Glass look of macOS, with dark and tinted variants.

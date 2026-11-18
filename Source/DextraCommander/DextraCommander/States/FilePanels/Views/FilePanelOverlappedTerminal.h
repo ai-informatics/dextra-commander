@@ -31,6 +31,8 @@
 @property(nonatomic) std::function<void()> onShellCWDChanged;
 @property(nonatomic) std::function<void()> onLongTaskStarted;
 @property(nonatomic) std::function<void()> onLongTaskFinished;
+// Called on the main thread once the shell has exited, e.g. after the "exit" command.
+@property(nonatomic) std::function<void()> onShellDied;
 @property(nonatomic, readonly) std::string cwd;
 
 @end

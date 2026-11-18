@@ -109,6 +109,22 @@ struct MainWindowFilePanelState_OverlappedTerminalSupport;
 - (id<NCPanelPreview>)quickLookForPanel:(PanelController *)_panel make:(bool)_make_if_absent;
 - (BriefSystemOverview *)briefSystemOverviewForPanel:(PanelController *)_panel make:(bool)_make_if_absent;
 
+/**
+ * A terminal shown in place of the inactive panel, if any.
+ */
+@property(nonatomic, readonly) FilePanelOverlappedTerminal *terminalInOppositePanel;
+
+/**
+ * The panel next to the terminal shown in place of the inactive panel - the terminal follows its directory.
+ */
+@property(nonatomic, readonly) PanelController *panelOwningTerminalInOppositePanel;
+
+/**
+ * Shows a terminal in place of the panel opposite to the active one, starting in the active panel's directory,
+ * or closes it if it's already shown.
+ */
+- (void)toggleTerminalInOppositePanel;
+
 - (void)requestTerminalExecution:(const std::string &)_filename at:(const std::string &)_cwd;
 - (void)closeAttachedUI:(PanelController *)_panel;
 

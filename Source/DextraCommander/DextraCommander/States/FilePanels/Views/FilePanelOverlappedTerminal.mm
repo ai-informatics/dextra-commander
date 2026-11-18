@@ -35,6 +35,7 @@ static const auto g_LongProcessDelay = 100ms;
     std::function<void()> m_OnShellCWDChanged;
     std::function<void()> m_OnLongTaskStarted;
     std::function<void()> m_OnLongTaskFinished;
+    std::function<void()> m_OnShellDied;
     int m_BashCommandStartX;
     int m_BashCommandStartY;
     volatile bool m_RunningLongTask;
@@ -43,6 +44,7 @@ static const auto g_LongProcessDelay = 100ms;
 @synthesize onShellCWDChanged = m_OnShellCWDChanged;
 @synthesize onLongTaskStarted = m_OnLongTaskStarted;
 @synthesize onLongTaskFinished = m_OnLongTaskFinished;
+@synthesize onShellDied = m_OnShellDied;
 
 - (id)initWithFrame:(NSRect)frameRect
 {
@@ -160,6 +162,14 @@ static const auto g_LongProcessDelay = 100ms;
 
 - (void)onTaskStateChanged:(ShellTask::TaskState)_state
 {
+    if( _state == ShellTask::TaskState::Dead ) {
+        __weak FilePanelOverlappedTerminal *weak_self = self;
+        dispatch_to_main_queue([weak_self] {
+            FilePanelOverlappedTerminal *const me = weak_self;
+            if( me && me->m_OnShellDied )
+                me->m_OnShellDied();
+        });
+    }
     if( _state == ShellTask::TaskState::ProgramInternal || _state == ShellTask::TaskState::ProgramExternal ) {
         dispatch_to_main_queue_after(g_TaskStartInputDelay, [=] {
             const int task_pid = m_Task->ShellChildPID();

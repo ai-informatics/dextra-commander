@@ -785,13 +785,19 @@ The terminal is context-aware and synchronizes the current panel's folder with t
 This synchronization is bi-directional, executing `cd` in the terminal updates the panel path, and changing the folder in the panel updates the terminal’s working directory.
 Supported terminal shells include `bash`, `zsh`, `csh`, and `tcsh`.
 
-There are two ways to use the terminal emulator in Dextra Commander:
+There are three ways to use the terminal emulator in Dextra Commander:
 
+- Opposite Panel Mode.  
+  The terminal takes the place of the inactive panel, so the files you're working with stay visible right next to it.
+  Press `Alt + Cmd + O` or select the `View > Show Terminal in Opposite Panel` menu item to open it.
+  The terminal starts in the folder of the active panel and follows it to other folders, as long as nothing is running or typed in the terminal.
+  Press `Tab` in the panel or `Ctrl + Alt + Tab` to move the focus into the terminal, and `Ctrl + Alt + Tab` again to return to the panel.
+  To close the terminal and bring the panel back, press `Alt + Cmd + O` again or end the shell with `exit`.
 - Full-Window Mode.  
   In full-window mode, the terminal occupies the entire application window, temporarily hiding the file panels.
   This mode is ideal when you need to focus exclusively on command-line tasks.
-  You can toggle this mode by pressing `Alt + Cmd + O` or selecting the `View > Show Terminal` menu item.
-  To exit and return to the file panels, press `Alt + Cmd + O` again or select the `View > Hide Terminal` menu item.
+  You can toggle this mode by pressing `Shift + Alt + Cmd + O` or selecting the `View > Show Terminal` menu item.
+  To exit and return to the file panels, press `Shift + Alt + Cmd + O` again or select the `View > Hide Terminal` menu item.
 - Overlapped Mode.  
   In overlapped mode, the terminal is positioned below the file panels, allowing both to remain visible simultaneously.
   This configuration is particularly useful for users familiar with orthodox dual-pane file managers, where a command-line interface is always accessible.
@@ -885,7 +891,8 @@ Some actions do not have default hotkeys but can still be accessed through the a
 | &nbsp; &nbsp; Focus Overlapped Terminal      | Ctrl + Opt + Tab          |
 | &nbsp; Show Tab Bar                          | Shift + Cmd + T           |
 | &nbsp; Show Toolbar                          | Opt + Cmd + T             |
-| &nbsp; Show Terminal                         | Opt + Cmd + O             |
+| &nbsp; Show Terminal                         | Shift + Opt + Cmd + O     |
+| &nbsp; Show Terminal in Opposite Panel       | Opt + Cmd + O             |
 | _**Go Menu**_                                |                           |
 | &nbsp; Left Panel...                         | F1                        |
 | &nbsp; Right Panel...                        | F2                        |
