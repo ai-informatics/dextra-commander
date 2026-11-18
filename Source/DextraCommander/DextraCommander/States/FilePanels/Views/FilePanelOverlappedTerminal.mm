@@ -15,6 +15,7 @@
 #include <Utility/StringExtras.h>
 #include <Utility/ObjCpp.h>
 #include <algorithm>
+#include <atomic>
 
 using namespace nc;
 using namespace nc::term;
@@ -44,6 +45,8 @@ static const auto g_HintBarHeight = 20.;
     int m_BashCommandStartX;
     int m_BashCommandStartY;
     volatile bool m_RunningLongTask;
+    // Whether anything was typed or fed into the shell since it has printed its last prompt.
+    std::atomic_bool m_InputSincePrompt;
 }
 
 @synthesize onShellCWDChanged = m_OnShellCWDChanged;
@@ -58,6 +61,7 @@ static const auto g_HintBarHeight = 20.;
         m_BashCommandStartX = m_BashCommandStartY = std::numeric_limits<int>::max();
         m_RunningLongTask = false;
         m_InitalWD = nc::base::CommonPaths::Home();
+        m_InputSincePrompt = false;
         __weak FilePanelOverlappedTerminal *weak_self = self;
 
         m_TermScrollView = [[NCTermScrollView alloc] initWithFrame:self.bounds
@@ -86,6 +90,8 @@ static const auto g_HintBarHeight = 20.;
         // input translator
         m_InputTranslator = std::make_unique<InputTranslatorImpl>();
         m_InputTranslator->SetOuput([=](std::span<const std::byte> _bytes) {
+            if( FilePanelOverlappedTerminal *const me = weak_self )
+                me->m_InputSincePrompt = true;
             task_ptr->WriteChildInput(std::string_view(reinterpret_cast<const char *>(_bytes.data()), _bytes.size()));
         });
 
@@ -203,6 +209,7 @@ static const auto g_HintBarHeight = 20.;
 - (void)onBashPrompt:(std::string_view) [[maybe_unused]] _cwd cwdChanged:(bool)_changed
 {
     dispatch_assert_background_queue();
+    m_InputSincePrompt = false;
     dispatch_to_main_queue_after(g_BashPromptInputDelay, [=] { [self guessWhereCommandLineIs]; });
 
     if( _changed )
@@ -333,6 +340,7 @@ static const auto g_HintBarHeight = 20.;
 
     auto esc = Task::EscapeShellFeed(_input);
     if( !esc.empty() ) {
+        m_InputSincePrompt = true;
         esc += ' ';
         m_Task->WriteChildInput(esc);
     }
@@ -349,6 +357,11 @@ static const auto g_HintBarHeight = 20.;
 {
     if( self.state != ShellTask::TaskState::Shell )
         return false;
+
+    // Prompts like powerlevel10k draw on the right side of the command line, so the screen alone can't tell it's
+    // empty - but nothing typed since the prompt means there's nothing to lose.
+    if( !m_InputSincePrompt )
+        return true;
 
     auto virgin = false;
     auto lock = m_TermScrollView.screen.AcquireLock();
