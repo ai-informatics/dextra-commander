@@ -913,16 +913,11 @@ static void AskAboutStoppingRunningOperations(NSWindow *_window, std::function<v
         return;
     }
 
-    const auto terminal = [[FilePanelOverlappedTerminal alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
-    __weak MainWindowFilePanelState *weak_self = self;
-    __weak FilePanelOverlappedTerminal *weak_terminal = terminal;
-    terminal.onShellDied = [weak_self, weak_terminal] {
-        // The user has ended the shell, e.g. with "exit" - bring the panel back.
-        MainWindowFilePanelState *const me = weak_self;
-        FilePanelOverlappedTerminal *const dead_terminal = weak_terminal;
-        if( me && dead_terminal && me.terminalInOppositePanel == dead_terminal )
-            [me closeTerminalInOppositePanel];
-    };
+    // Reuse the session that was hidden before, so that whatever runs in it keeps running.
+    const bool reuse = m_OppositePanelTerminal && m_OppositePanelTerminal.state != nc::term::ShellTask::TaskState::Dead;
+    FilePanelOverlappedTerminal *const terminal =
+        reuse ? m_OppositePanelTerminal
+              : [[FilePanelOverlappedTerminal alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
 
     if( [self isLeftController:panel] )
         m_SplitView.rightOverlay = terminal;
@@ -931,14 +926,34 @@ static void AskAboutStoppingRunningOperations(NSWindow *_window, std::function<v
     else
         return;
 
-    // An empty path makes the shell start in the home directory, e.g. when the panel shows an archive.
-    std::string working_directory;
-    if( panel.isUniform && panel.vfs->IsNativeFS() )
-        working_directory = panel.currentDirectoryPath;
-    [terminal runShell:working_directory];
+    if( reuse ) {
+        [self synchronizeTerminalInOppositePanelWithPanel:panel];
+    }
+    else {
+        m_OppositePanelTerminal = terminal;
+        __weak MainWindowFilePanelState *weak_self = self;
+        __weak FilePanelOverlappedTerminal *weak_terminal = terminal;
+        terminal.onShellDied = [weak_self, weak_terminal] {
+            // The user has ended the shell, e.g. with "exit" - forget the session and bring the panel back.
+            MainWindowFilePanelState *const me = weak_self;
+            FilePanelOverlappedTerminal *const dead_terminal = weak_terminal;
+            if( me == nil || dead_terminal == nil || me->m_OppositePanelTerminal != dead_terminal )
+                return;
+            if( me.terminalInOppositePanel == dead_terminal )
+                [me closeTerminalInOppositePanel];
+            me->m_OppositePanelTerminal = nil;
+        };
+
+        // An empty path makes the shell start in the home directory, e.g. when the panel shows an archive.
+        std::string working_directory;
+        if( panel.isUniform && panel.vfs->IsNativeFS() )
+            working_directory = panel.currentDirectoryPath;
+        [terminal runShell:working_directory];
+    }
     [terminal focusTerminal];
 }
 
+// Hides the terminal, its session keeps running in the background until it's shown again.
 - (void)closeTerminalInOppositePanel
 {
     PanelController *const owner = self.panelOwningTerminalInOppositePanel;

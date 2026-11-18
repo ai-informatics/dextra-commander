@@ -45,6 +45,8 @@ struct MainWindowFilePanelState_OverlappedTerminalSupport;
     std::vector<PanelController *> m_LeftPanelControllers;
     std::vector<PanelController *> m_RightPanelControllers;
     __weak PanelController *m_LastFocusedPanelController;
+    // The session of the terminal shown in place of the inactive panel - kept while the terminal is hidden.
+    FilePanelOverlappedTerminal *m_OppositePanelTerminal;
 
     AttachedResponder *m_AttachedResponder;
 

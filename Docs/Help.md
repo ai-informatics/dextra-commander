@@ -792,7 +792,9 @@ There are three ways to use the terminal emulator in Dextra Commander:
   Press `Alt + Cmd + O` or select the `View > Show Terminal in Opposite Panel` menu item to open it.
   The terminal starts in the folder of the active panel and follows it to other folders, as long as nothing is running or typed in the terminal.
   Press `Tab` in the panel or `Ctrl + Alt + Tab` to move the focus into the terminal, and `Ctrl + Alt + Tab` again to return to the panel.
-  To close the terminal and bring the panel back, press `Alt + Cmd + O` again or end the shell with `exit`.
+  To hide the terminal and bring the panel back, press `Alt + Cmd + O` again.
+  The terminal session keeps running while it's hidden, so programs started in it, such as `top`, are still there when you press `Alt + Cmd + O` next time.
+  To end the session, type `exit` in the terminal.
 - Full-Window Mode.  
   In full-window mode, the terminal occupies the entire application window, temporarily hiding the file panels.
   This mode is ideal when you need to focus exclusively on command-line tasks.
