@@ -127,6 +127,11 @@ struct MainWindowFilePanelState_OverlappedTerminalSupport;
  */
 - (void)toggleTerminalInOppositePanel;
 
+/**
+ * Moves the focus from the terminal shown in place of the inactive panel to the panel next to it and vice versa.
+ */
+- (void)switchFocusBetweenTerminalInOppositePanelAndPanel;
+
 - (void)requestTerminalExecution:(const std::string &)_filename at:(const std::string &)_cwd;
 - (void)closeAttachedUI:(PanelController *)_panel;
 

@@ -13,7 +13,7 @@ static const auto g_CloseWindow = NSLocalizedString(@"Close Window", "Menu item 
 
 bool ShowNextTab::Predicate(MainWindowFilePanelState *_target) const
 {
-    return _target.currentSideTabsCount > 1;
+    return _target.terminalInOppositePanel != nil || _target.currentSideTabsCount > 1;
 }
 
 bool ShowNextTab::ValidateMenuItem(MainWindowFilePanelState *_target, NSMenuItem * /*_item*/) const
@@ -23,12 +23,16 @@ bool ShowNextTab::ValidateMenuItem(MainWindowFilePanelState *_target, NSMenuItem
 
 void ShowNextTab::Perform(MainWindowFilePanelState *_target, id /*_sender*/) const
 {
-    [_target selectNextFilePanelTab];
+    // While a terminal is shown in place of the inactive panel the same shortcut switches between it and the panel.
+    if( _target.terminalInOppositePanel != nil )
+        [_target switchFocusBetweenTerminalInOppositePanelAndPanel];
+    else
+        [_target selectNextFilePanelTab];
 }
 
 bool ShowPreviousTab::Predicate(MainWindowFilePanelState *_target) const
 {
-    return _target.currentSideTabsCount > 1;
+    return _target.terminalInOppositePanel != nil || _target.currentSideTabsCount > 1;
 }
 
 bool ShowPreviousTab::ValidateMenuItem(MainWindowFilePanelState *_target, NSMenuItem * /*_item*/) const
@@ -38,7 +42,11 @@ bool ShowPreviousTab::ValidateMenuItem(MainWindowFilePanelState *_target, NSMenu
 
 void ShowPreviousTab::Perform(MainWindowFilePanelState *_target, id /*_sender*/) const
 {
-    [_target selectPreviousFilePanelTab];
+    // While a terminal is shown in place of the inactive panel the same shortcut switches between it and the panel.
+    if( _target.terminalInOppositePanel != nil )
+        [_target switchFocusBetweenTerminalInOppositePanelAndPanel];
+    else
+        [_target selectPreviousFilePanelTab];
 }
 
 bool CloseTab::ValidateMenuItem(MainWindowFilePanelState *_target, NSMenuItem *_item) const

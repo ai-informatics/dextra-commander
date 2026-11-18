@@ -201,11 +201,8 @@ static const auto g_ConfigGapPath = "filePanel.general.bottomGapForOverlappedTer
 - (void)handleCtrlAltTab
 {
     // Switch between a terminal shown in place of the inactive panel and the panel next to it.
-    if( FilePanelOverlappedTerminal *const terminal = self.terminalInOppositePanel ) {
-        if( self.isPanelActive )
-            [terminal focusTerminal];
-        else if( PanelController *const panel = self.panelOwningTerminalInOppositePanel )
-            [self ActivatePanelByController:panel];
+    if( self.terminalInOppositePanel ) {
+        [self switchFocusBetweenTerminalInOppositePanelAndPanel];
         return;
     }
 

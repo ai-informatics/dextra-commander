@@ -35,4 +35,9 @@
 @property(nonatomic) std::function<void()> onShellDied;
 @property(nonatomic, readonly) std::string cwd;
 
+/**
+ * A short text shown in a slim bar below the terminal, e.g. the keyboard shortcuts. Nil hides the bar.
+ */
+@property(nonatomic, copy) NSString *hint;
+
 @end

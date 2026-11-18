@@ -1140,6 +1140,23 @@
         }
       }
     },
+    "exit - end session" : {
+      "comment" : "Hint below the terminal in the opposite panel",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "exit - завершить сеанс"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "exit - 结束会话"
+          }
+        }
+      }
+    },
     "Failed to access the dragged item:" : {
       "comment" : "Showing error when failed to access the dragged items",
       "localizations" : {
@@ -1988,6 +2005,23 @@
         }
       }
     },
+    "Hide terminal" : {
+      "comment" : "Hint below the terminal in the opposite panel",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скрыть терминал"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏终端"
+          }
+        }
+      }
+    },
     "Hide Terminal" : {
       "comment" : "Menu item title for hiding terminal",
       "localizations" : {
@@ -2001,6 +2035,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "隐藏终端"
+          }
+        }
+      }
+    },
+    "Hide Terminal in Opposite Panel" : {
+      "comment" : "Menu item title for hiding the terminal shown in place of the inactive panel",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скрыть терминал в соседней панели"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏另一面板中的终端"
           }
         }
       }
@@ -2865,6 +2916,23 @@
         }
       }
     },
+    "Show Terminal in Opposite Panel" : {
+      "comment" : "Menu item title for showing a terminal in place of the inactive panel",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать терминал в соседней панели"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在另一面板中显示终端"
+          }
+        }
+      }
+    },
     "Show Toolbar" : {
       "comment" : "Menu item title",
       "localizations" : {
@@ -2963,6 +3031,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "交换空间："
+          }
+        }
+      }
+    },
+    "Switch between terminal and panel" : {
+      "comment" : "Hint below the terminal in the opposite panel",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переключение между терминалом и панелью"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在终端和面板之间切换"
           }
         }
       }

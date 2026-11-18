@@ -9,6 +9,7 @@
 #include <Term/InterpreterImpl.h>
 #include <DextraCommander/Bootstrap/Config.h>
 #include <DextraCommander/States/Terminal/SettingsAdaptor.h>
+#include <DextraCommander/Core/Theming/Theme.h>
 #include "FilePanelOverlappedTerminal.h"
 #include <Base/dispatch_cpp.h>
 #include <Utility/StringExtras.h>
@@ -24,9 +25,13 @@ static const auto g_CustomPath = "terminal.customShellPath";
 static const auto g_BashPromptInputDelay = 10ms;
 static const auto g_TaskStartInputDelay = 50ms;
 static const auto g_LongProcessDelay = 100ms;
+static const auto g_HintBarHeight = 20.;
 
 @implementation FilePanelOverlappedTerminal {
     NCTermScrollView *m_TermScrollView;
+    NSLayoutConstraint *m_TermScrollViewBottom;
+    NSTextField *m_HintLabel;
+    NSBox *m_HintBar;
     std::unique_ptr<ShellTask> m_Task;
     std::unique_ptr<Parser> m_Parser;
     std::unique_ptr<InputTranslator> m_InputTranslator;
@@ -67,11 +72,9 @@ static const auto g_LongProcessDelay = 100ms;
                                                      options:0
                                                      metrics:nil
                                                        views:NSDictionaryOfVariableBindings(m_TermScrollView)]];
-        [self addConstraints:[NSLayoutConstraint
-                                 constraintsWithVisualFormat:@"V:|-(==0)-[m_TermScrollView]-(==0)-|"
-                                                     options:0
-                                                     metrics:nil
-                                                       views:NSDictionaryOfVariableBindings(m_TermScrollView)]];
+        [m_TermScrollView.topAnchor constraintEqualToAnchor:self.topAnchor].active = true;
+        m_TermScrollViewBottom = [m_TermScrollView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+        m_TermScrollViewBottom.active = true;
 
         m_Task = std::make_unique<ShellTask>();
         if( !GlobalConfig().GetBool(g_UseDefault) )
@@ -127,6 +130,55 @@ static const auto g_LongProcessDelay = 100ms;
         });
     }
     return self;
+}
+
+- (NSString *)hint
+{
+    return m_HintLabel ? m_HintLabel.stringValue : nil;
+}
+
+- (void)setHint:(NSString *)_hint
+{
+    if( _hint == nil ) {
+        [m_HintBar removeFromSuperview];
+        m_HintBar = nil;
+        m_HintLabel = nil;
+        m_TermScrollViewBottom.constant = 0.;
+        return;
+    }
+
+    if( m_HintBar == nil ) {
+        const auto &theme = nc::CurrentTheme();
+        m_HintBar = [[NSBox alloc] initWithFrame:NSMakeRect(0, 0, 100, g_HintBarHeight)];
+        m_HintBar.translatesAutoresizingMaskIntoConstraints = false;
+        m_HintBar.boxType = NSBoxCustom;
+        m_HintBar.borderWidth = 0.;
+        m_HintBar.contentViewMargins = NSMakeSize(0, 0);
+        m_HintBar.fillColor = theme.FilePanelsFooterInactiveBackgroundColor();
+
+        m_HintLabel = [NSTextField labelWithString:@""];
+        m_HintLabel.translatesAutoresizingMaskIntoConstraints = false;
+        m_HintLabel.font = theme.FilePanelsFooterFont();
+        m_HintLabel.textColor = theme.FilePanelsFooterTextColor();
+        m_HintLabel.alignment = NSTextAlignmentCenter;
+        m_HintLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        [m_HintLabel setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow
+                                              forOrientation:NSLayoutConstraintOrientationHorizontal];
+        [m_HintBar addSubview:m_HintLabel];
+        [self addSubview:m_HintBar];
+
+        [NSLayoutConstraint activateConstraints:@[
+            [m_HintBar.leadingAnchor constraintEqualToAnchor:self.leadingAnchor],
+            [m_HintBar.trailingAnchor constraintEqualToAnchor:self.trailingAnchor],
+            [m_HintBar.bottomAnchor constraintEqualToAnchor:self.bottomAnchor],
+            [m_HintBar.heightAnchor constraintEqualToConstant:g_HintBarHeight],
+            [m_HintLabel.leadingAnchor constraintEqualToAnchor:m_HintBar.leadingAnchor constant:6.],
+            [m_HintLabel.trailingAnchor constraintEqualToAnchor:m_HintBar.trailingAnchor constant:-6.],
+            [m_HintLabel.centerYAnchor constraintEqualToAnchor:m_HintBar.centerYAnchor]
+        ]];
+        m_TermScrollViewBottom.constant = -g_HintBarHeight;
+    }
+    m_HintLabel.stringValue = _hint;
 }
 
 - (void)onChildOutput:(std::span<const std::byte>)_data

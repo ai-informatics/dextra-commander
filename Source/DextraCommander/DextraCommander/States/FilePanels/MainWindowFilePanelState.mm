@@ -926,6 +926,8 @@ static void AskAboutStoppingRunningOperations(NSWindow *_window, std::function<v
     else
         return;
 
+    terminal.hint = [self hintForTerminalInOppositePanel];
+
     if( reuse ) {
         [self synchronizeTerminalInOppositePanelWithPanel:panel];
     }
@@ -951,6 +953,44 @@ static void AskAboutStoppingRunningOperations(NSWindow *_window, std::function<v
         [terminal runShell:working_directory];
     }
     [terminal focusTerminal];
+}
+
+// Tells the user how to move between the terminal and the panel, built from the currently assigned shortcuts.
+- (NSString *)hintForTerminalInOppositePanel
+{
+    const auto &shortcuts_manager = NCAppDelegate.me.actionsShortcutsManager;
+    const auto shortcut = [&](std::string_view _action) -> NSString * {
+        if( const auto shortcuts = shortcuts_manager.ShortcutsFromAction(_action) )
+            for( const auto &sc : *shortcuts )
+                if( static_cast<bool>(sc) )
+                    return sc.PrettyString();
+        return nil;
+    };
+
+    NSString *const switch_focus =
+        NSLocalizedString(@"Switch between terminal and panel", "Hint below the terminal in the opposite panel");
+    NSString *const hide = NSLocalizedString(@"Hide terminal", "Hint below the terminal in the opposite panel");
+    NSString *const end_session =
+        NSLocalizedString(@"exit - end session", "Hint below the terminal in the opposite panel");
+
+    NSMutableArray<NSString *> *const parts = [NSMutableArray array];
+    if( NSString *const sc = shortcut("menu.window.show_next_tab") )
+        [parts addObject:[NSString stringWithFormat:@"%@ %@", sc, switch_focus]];
+    if( NSString *const sc = shortcut("menu.view.show_terminal_in_opposite_panel") )
+        [parts addObject:[NSString stringWithFormat:@"%@ %@", sc, hide]];
+    [parts addObject:end_session];
+    return [parts componentsJoinedByString:@"   ·   "];
+}
+
+- (void)switchFocusBetweenTerminalInOppositePanelAndPanel
+{
+    FilePanelOverlappedTerminal *const terminal = self.terminalInOppositePanel;
+    if( terminal == nil )
+        return;
+    if( self.isPanelActive )
+        [terminal focusTerminal];
+    else if( PanelController *const panel = self.panelOwningTerminalInOppositePanel )
+        [self ActivatePanelByController:panel];
 }
 
 // Hides the terminal, its session keeps running in the background until it's shown again.
