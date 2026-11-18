@@ -13,7 +13,7 @@ namespace nc::panel::actions {
 
 // currently supports only info from NSFilenamesPboardType.
 // perhaps it would be good to add support of URLS at least.
-// or even with custom NC's structures used in drag&drop system
+// or even with custom DC's structures used in drag&drop system
 
 static std::vector<VFSListingItem> FetchVFSListingsItemsFromPaths(NSArray *_input, vfs::NativeHost &_native_host)
 {

@@ -2537,7 +2537,7 @@ void CopyingJob::ClearSourceItem(const std::string &_path, mode_t _mode, VFSHost
 
 void CopyingJob::ApplyPermissionFixups()
 {
-    // TODO: should NC bark at perms fixup errors?
+    // TODO: should DC bark at perms fixup errors?
     if( m_IsDestinationHostNative ) {
         auto &io = routedio::RoutedIO::Default;
         for( const auto &i : std::ranges::reverse_view(m_TargetPermissionsFixupEpilogue) ) {
@@ -2559,7 +2559,7 @@ void CopyingJob::ApplyPermissionFixups()
 
 void CopyingJob::ApplyTimestampsFixups()
 {
-    // TODO: should NC bark at timestamp fixup errors?
+    // TODO: should DC bark at timestamp fixup errors?
     if( m_IsDestinationHostNative ) {
         auto &io = routedio::RoutedIO::Default;
         for( const auto &i : std::ranges::reverse_view(m_TargetTimestampFixupEpilogue) ) {

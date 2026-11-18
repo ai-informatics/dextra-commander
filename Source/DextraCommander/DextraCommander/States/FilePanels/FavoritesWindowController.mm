@@ -227,7 +227,7 @@ static const auto g_FavoritesWindowControllerDragDataType =
         std::vector<FavoriteLocationsStorage::Favorite> addition;
         auto &storage = m_Storage();
         if( auto source = nc::objc_cast<FilesDraggingSource>(info.draggingSource) ) {
-            // dragging from some NC panel
+            // dragging from some DC panel
             for( PanelDraggingItem *item : source.items )
                 if( auto f = FavoriteComposing{storage}.FromListingItem(item.item) )
                     if( ![self hasFavorite:*f] )
@@ -351,7 +351,7 @@ static const auto g_FavoritesWindowControllerDragDataType =
     if( ff.empty() ) {
         Alert *alert = [[Alert alloc] init];
         alert.messageText = NSLocalizedString(@"Failed to retreive Finder's Favorites",
-                                              "Showing an error when NC isn't able to get Finder Favorites");
+                                              "Showing an error when DC isn't able to get Finder Favorites");
         [alert addButtonWithTitle:NSLocalizedString(@"OK", "")];
         [alert beginSheetModalForWindow:self.window
                       completionHandler:^([[maybe_unused]] NSModalResponse rc){

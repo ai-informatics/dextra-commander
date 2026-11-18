@@ -498,7 +498,7 @@
       }
     },
     "Allow Access" : {
-      "comment" : "Asking user for granting file system access for NC - button title",
+      "comment" : "Asking user for granting file system access for DC - button title",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -1226,7 +1226,7 @@
       }
     },
     "Failed to retreive Finder's Favorites" : {
-      "comment" : "Showing an error when NC isn't able to get Finder Favorites",
+      "comment" : "Showing an error when DC isn't able to get Finder Favorites",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -3444,7 +3444,7 @@
       "comment" : "Hint in the app picker without recent apps"
     },
     "Unable to connect to a network share" : {
-      "comment" : "Informing a user that NC can't connect to network share",
+      "comment" : "Informing a user that DC can't connect to network share",
       "localizations" : {
         "ru" : {
           "stringUnit" : {

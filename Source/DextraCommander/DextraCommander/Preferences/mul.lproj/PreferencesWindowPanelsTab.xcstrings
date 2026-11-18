@@ -1526,25 +1526,25 @@
       }
     },
     "LGc-UR-n1L.title" : {
-      "comment" : "Class = \"NSButtonCell\"; title = \"Show when NC is active\"; ObjectID = \"LGc-UR-n1L\";",
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show when DC is active\"; ObjectID = \"LGc-UR-n1L\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Show when NC is active"
+            "value" : "Show when DC is active"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Показывать когда NC активен"
+            "value" : "Показывать когда DC активен"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "当 NC 处于活动状态时显示"
+            "value" : "当 DC 处于活动状态时显示"
           }
         }
       }
