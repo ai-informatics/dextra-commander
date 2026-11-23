@@ -793,9 +793,11 @@ There are three ways to use the terminal emulator in Dextra Commander:
   The terminal starts in the folder of the active panel and follows it to other folders, as long as nothing is running or typed in the terminal.
   Following can be turned off with the `Terminal in opposite panel follows the panel's folder` option in the Terminal preferences.
   Press `Alt + Cmd + S` or select `View > Sync Terminal Folder with Panel` to move the terminal to the panel's folder at any time, this discards anything typed in the terminal.
+  Syncing isn't possible while a program is running in the terminal, or when the panel shows a folder that isn't on your Mac, e.g. inside an archive or on an FTP server.
   Press `Ctrl + Tab` to switch the focus between the terminal and the panel, `Tab` in the panel and `Ctrl + Alt + Tab` work as well.
   While the terminal is shown, `Ctrl + Tab` switches between the terminal and the panel instead of switching tabs.
-  A slim bar below the terminal reminds of these shortcuts.
+  A slim bar below the terminal reminds of these shortcuts: switching between the terminal and the panel, syncing the folder, hiding the terminal and ending the session.
+  It always shows the shortcuts currently assigned in the Hotkeys preferences.
   To hide the terminal and bring the panel back, press `Alt + Cmd + O` again.
   The terminal session keeps running while it's hidden, so programs started in it, such as `top`, are still there when you press `Alt + Cmd + O` next time.
   To end the session, type `exit` in the terminal.
