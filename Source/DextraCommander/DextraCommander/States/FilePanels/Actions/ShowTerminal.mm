@@ -49,4 +49,15 @@ void ShowTerminalInOppositePanel::Perform(MainWindowFilePanelState *_target, [[m
     [_target toggleTerminalInOppositePanel];
 }
 
+bool SyncTerminalInOppositePanelWithPanel::Predicate(MainWindowFilePanelState *_target) const
+{
+    return _target.terminalInOppositePanel != nil;
+}
+
+void SyncTerminalInOppositePanelWithPanel::Perform(MainWindowFilePanelState *_target, [[maybe_unused]] id _sender) const
+{
+    if( ![_target syncTerminalInOppositePanelWithPanel] )
+        NSBeep();
+}
+
 } // namespace nc::panel::actions

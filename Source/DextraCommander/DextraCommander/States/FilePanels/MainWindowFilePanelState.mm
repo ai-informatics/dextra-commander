@@ -50,6 +50,7 @@ static const auto g_ConfigInitialLeftPath = "filePanel.general.initialLeftPanelP
 static const auto g_ConfigInitialRightPath = "filePanel.general.initialRightPanelPath";
 static const auto g_ConfigGeneralShowTabs = "general.showTabs";
 static const auto g_ConfigRouteKeyboardInputIntoTerminal = "filePanel.general.routeKeyboardInputIntoTerminal";
+static const auto g_ConfigOppositePanelTerminalFollowsFolder = "terminal.oppositePanelFollowsFolder";
 static const auto g_ResorationPanelsKey = "panels_v1";
 static const auto g_ResorationUIKey = "uiState";
 static const auto g_ResorationUISelectedLeftTab = "selectedLeftTab";
@@ -970,16 +971,31 @@ static void AskAboutStoppingRunningOperations(NSWindow *_window, std::function<v
     NSString *const switch_focus =
         NSLocalizedString(@"Switch between terminal and panel", "Hint below the terminal in the opposite panel");
     NSString *const hide = NSLocalizedString(@"Hide terminal", "Hint below the terminal in the opposite panel");
+    NSString *const sync = NSLocalizedString(@"Go to panel folder", "Hint below the terminal in the opposite panel");
     NSString *const end_session =
         NSLocalizedString(@"exit - end session", "Hint below the terminal in the opposite panel");
 
     NSMutableArray<NSString *> *const parts = [NSMutableArray array];
     if( NSString *const sc = shortcut("menu.window.show_next_tab") )
         [parts addObject:[NSString stringWithFormat:@"%@ %@", sc, switch_focus]];
+    if( NSString *const sc = shortcut("menu.view.sync_terminal_with_panel") )
+        [parts addObject:[NSString stringWithFormat:@"%@ %@", sc, sync]];
     if( NSString *const sc = shortcut("menu.view.show_terminal_in_opposite_panel") )
         [parts addObject:[NSString stringWithFormat:@"%@ %@", sc, hide]];
     [parts addObject:end_session];
     return [parts componentsJoinedByString:@"   ·   "];
+}
+
+- (bool)syncTerminalInOppositePanelWithPanel
+{
+    FilePanelOverlappedTerminal *const terminal = self.terminalInOppositePanel;
+    PanelController *const panel = self.panelOwningTerminalInOppositePanel;
+    if( terminal == nil || panel == nil || terminal.state != nc::term::ShellTask::TaskState::Shell )
+        return false;
+    if( !panel.isUniform || !panel.vfs->IsNativeFS() )
+        return false;
+    [terminal changeWorkingDirectory:panel.currentDirectoryPath];
+    return true;
 }
 
 - (void)switchFocusBetweenTerminalInOppositePanelAndPanel
@@ -1010,6 +1026,8 @@ static void AskAboutStoppingRunningOperations(NSWindow *_window, std::function<v
 {
     FilePanelOverlappedTerminal *const terminal = self.terminalInOppositePanel;
     if( terminal == nil || _pc != self.panelOwningTerminalInOppositePanel )
+        return;
+    if( !GlobalConfig().GetBool(g_ConfigOppositePanelTerminalFollowsFolder) )
         return;
     if( _pc.isUniform && _pc.vfs->IsNativeFS() && terminal.isShellVirgin )
         [terminal changeWorkingDirectory:_pc.currentDirectoryPath];

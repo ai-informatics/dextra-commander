@@ -88,6 +88,7 @@ static constexpr std::pair<const char*,int> g_ActionsTags[] = {
     {"menu.view.show_toolbar",                          13'180},
     {"menu.view.show_terminal",                         13'190},
     {"menu.view.show_terminal_in_opposite_panel",       13'195},
+    {"menu.view.sync_terminal_with_panel",              13'196},
     {"menu.view.panels_position.move_up",               13'200},
     {"menu.view.panels_position.move_down",             13'210},
     {"menu.view.panels_position.move_left",             13'220},
@@ -306,6 +307,7 @@ static constinit std::pair<const char*, const char*> g_DefaultActionShortcuts[] 
     {"menu.view.show_toolbar",                              "⌥⌘t"     }, // alt+cmd+t
     {"menu.view.show_terminal",                             "⇧⌥⌘o"    }, // shift+alt+cmd+o
     {"menu.view.show_terminal_in_opposite_panel",           "⌥⌘o"     }, // alt+cmd+o
+    {"menu.view.sync_terminal_with_panel",                  "⌥⌘s"     }, // alt+cmd+s
     
     {"menu.go.back",                                        "⌘["      }, // cmd+[
     {"menu.go.forward",                                     "⌘]"      }, // cmd+]

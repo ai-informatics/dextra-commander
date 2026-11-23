@@ -32,6 +32,7 @@ using StateActionsMap = ankerl::unordered_dense::map<SEL, std::unique_ptr<const 
 - (IBAction)onFocusRightPanel:(id)sender;
 - (IBAction)OnShowTerminal:(id)sender;
 - (IBAction)OnShowTerminalInOppositePanel:(id)sender;
+- (IBAction)OnSyncTerminalInOppositePanelWithPanel:(id)sender;
 - (IBAction)performClose:(id)sender;
 - (IBAction)OnFileCloseWindow:(id)sender;
 - (IBAction)onFileCloseOtherTabs:(id)sender;

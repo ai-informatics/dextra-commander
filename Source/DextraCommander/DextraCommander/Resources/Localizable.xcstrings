@@ -1939,6 +1939,23 @@
         }
       }
     },
+    "Go to panel folder" : {
+      "comment" : "Hint below the terminal in the opposite panel",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перейти в папку панели"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "转到面板文件夹"
+          }
+        }
+      }
+    },
     "Gray" : {
       "localizations" : {
         "ru" : {

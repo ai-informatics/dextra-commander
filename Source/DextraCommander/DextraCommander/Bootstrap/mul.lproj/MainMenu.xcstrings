@@ -4626,6 +4626,30 @@
           }
         }
       }
+    },
+    "TSy-nc-Trm.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Sync Terminal Folder with Panel\"; ObjectID = \"TSy-nc-Trm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sync Terminal Folder with Panel"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Синхронизировать папку терминала с панелью"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将终端文件夹与面板同步"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

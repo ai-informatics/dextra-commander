@@ -128,6 +128,16 @@
                         <binding destination="-3" name="value" keyPath="self.delegate.config.terminal.hideVerticalScrollbar" id="VVw-wM-YY2"/>
                     </connections>
                 </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="OPf-Fl-Btn">
+                    <rect key="frame" x="326" y="39" width="330" height="18"/>
+                    <buttonCell key="cell" type="check" title="Terminal in opposite panel follows the panel's folder" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="OPf-Fl-Cel">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-3" name="value" keyPath="self.delegate.config.terminal.oppositePanelFollowsFolder" id="OPf-Fl-Bnd"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="oJr-Cv-UJI" firstAttribute="top" secondItem="BYU-QH-WHm" secondAttribute="bottom" constant="4" id="84C-UI-dIX"/>
@@ -141,6 +151,8 @@
                 <constraint firstItem="stk-zw-sC0" firstAttribute="leading" secondItem="BYU-QH-WHm" secondAttribute="leading" id="kgd-DC-cZ1"/>
                 <constraint firstItem="stk-zw-sC0" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="centerX" multiplier="0.9" id="oF3-yB-Pca"/>
                 <constraint firstItem="uAW-va-aIo" firstAttribute="leading" secondItem="BYU-QH-WHm" secondAttribute="leading" id="q6e-Kc-TTg"/>
+                <constraint firstItem="OPf-Fl-Btn" firstAttribute="top" secondItem="uAW-va-aIo" secondAttribute="bottom" constant="8" id="OPf-Fl-Top"/>
+                <constraint firstItem="OPf-Fl-Btn" firstAttribute="leading" secondItem="uAW-va-aIo" secondAttribute="leading" id="OPf-Fl-Led"/>
                 <constraint firstItem="BYU-QH-WHm" firstAttribute="top" secondItem="aka-YG-TVI" secondAttribute="top" id="wQn-aq-uC0"/>
                 <constraint firstItem="y11-Bl-tZz" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="xQL-i5-xCC"/>
                 <constraint firstItem="stk-zw-sC0" firstAttribute="top" secondItem="y11-Bl-tZz" secondAttribute="top" id="y8q-qc-w7j"/>

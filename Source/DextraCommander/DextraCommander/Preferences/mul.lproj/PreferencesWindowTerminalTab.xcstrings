@@ -169,6 +169,30 @@
         }
       }
     },
+    "OPf-Fl-Cel.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Terminal in opposite panel follows the panel's folder\"; ObjectID = \"OPf-Fl-Cel\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Terminal in opposite panel follows the panel's folder"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Терминал в соседней панели следует за папкой панели"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "另一面板中的终端跟随面板的文件夹"
+          }
+        }
+      }
+    },
     "zcL-oM-aS5.title" : {
       "comment" : "Class = \"NSButtonCell\"; title = \"Hide scrollbar\"; ObjectID = \"zcL-oM-aS5\";",
       "extractionState" : "extracted_with_value",

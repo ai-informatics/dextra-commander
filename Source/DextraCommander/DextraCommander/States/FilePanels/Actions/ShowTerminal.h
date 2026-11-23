@@ -16,4 +16,10 @@ struct ShowTerminalInOppositePanel final : StateAction {
     void Perform(MainWindowFilePanelState *_target, id _sender) const override;
 };
 
+// Changes the folder of the terminal shown in place of the inactive panel to the folder of the panel next to it.
+struct SyncTerminalInOppositePanelWithPanel final : StateAction {
+    [[nodiscard]] bool Predicate(MainWindowFilePanelState *_target) const override;
+    void Perform(MainWindowFilePanelState *_target, id _sender) const override;
+};
+
 } // namespace nc::panel::actions

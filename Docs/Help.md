@@ -791,6 +791,8 @@ There are three ways to use the terminal emulator in Dextra Commander:
   The terminal takes the place of the inactive panel, so the files you're working with stay visible right next to it.
   Press `Alt + Cmd + O` or select the `View > Show Terminal in Opposite Panel` menu item to open it.
   The terminal starts in the folder of the active panel and follows it to other folders, as long as nothing is running or typed in the terminal.
+  Following can be turned off with the `Terminal in opposite panel follows the panel's folder` option in the Terminal preferences.
+  Press `Alt + Cmd + S` or select `View > Sync Terminal Folder with Panel` to move the terminal to the panel's folder at any time, this discards anything typed in the terminal.
   Press `Ctrl + Tab` to switch the focus between the terminal and the panel, `Tab` in the panel and `Ctrl + Alt + Tab` work as well.
   While the terminal is shown, `Ctrl + Tab` switches between the terminal and the panel instead of switching tabs.
   A slim bar below the terminal reminds of these shortcuts.
@@ -897,6 +899,7 @@ Some actions do not have default hotkeys but can still be accessed through the a
 | &nbsp; Show Toolbar                          | Opt + Cmd + T             |
 | &nbsp; Show Terminal                         | Shift + Opt + Cmd + O     |
 | &nbsp; Show Terminal in Opposite Panel       | Opt + Cmd + O             |
+| &nbsp; Sync Terminal Folder with Panel       | Opt + Cmd + S             |
 | _**Go Menu**_                                |                           |
 | &nbsp; Left Panel...                         | F1                        |
 | &nbsp; Right Panel...                        | F2                        |

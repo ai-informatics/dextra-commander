@@ -538,6 +538,12 @@ DQ
                                     <action selector="OnShowTerminalInOppositePanel:" target="-1" id="TOp-pn-Act"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Sync Terminal Folder with Panel" tag="13196" keyEquivalent="s" id="TSy-nc-Trm">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="OnSyncTerminalInOppositePanelWithPanel:" target="-1" id="TSy-nc-Act"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

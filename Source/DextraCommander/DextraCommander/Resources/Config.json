@@ -498,7 +498,13 @@
          * 1 - Underline,
          * 2 - Vertical bar
          */
-        "cursorMode": 0
+        "cursorMode": 0,
+
+        /**
+         * True if the terminal shown in place of the inactive panel should follow the panel next to it to other
+         * folders. Its folder can be synchronized manually with "Sync Terminal Folder with Panel" either way.
+         */
+        "oppositePanelFollowsFolder": true
     },
     
     "externalTools": {
