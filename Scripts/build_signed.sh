@@ -124,6 +124,8 @@ Dextra Commander ${VERSION} (${BUILD}) is free software distributed under the GN
 see LICENSE.md. The complete source code of this version is available at:
 https://github.com/ai-informatics/dextra-commander/tree/v${VERSION}
 SOURCE
+# The app isn't notarized yet, so macOS needs the user's confirmation when it's opened for the first time.
+cp "${SCRIPTS_DIR}/dmg/First Launch.txt" "${PACKAGE_DIR}/First Launch.txt"
 ZIP_PATH="${OUTPUT_DIR}/${NAME}.zip"
 rm -f "${ZIP_PATH}"
 ditto -c -k --sequesterRsrc --keepParent "${PACKAGE_DIR}" "${ZIP_PATH}"
@@ -133,6 +135,7 @@ echo "Created ${ZIP_PATH}"
 STAGE_DIR="${BUILD_DIR}/dmg"
 mkdir -p "${STAGE_DIR}"
 cp -R "${APP_PATH}" "${STAGE_DIR}/"
+cp "${PACKAGE_DIR}/LICENSE.md" "${PACKAGE_DIR}/Source code.txt" "${PACKAGE_DIR}/First Launch.txt" "${STAGE_DIR}/"
 ln -s /Applications "${STAGE_DIR}/Applications"
 DMG_PATH="${OUTPUT_DIR}/${NAME}.dmg"
 rm -f "${DMG_PATH}"

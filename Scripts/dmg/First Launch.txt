@@ -1,0 +1,80 @@
+DEXTRA COMMANDER - OPENING THE APP FOR THE FIRST TIME
+=====================================================
+
+English - Deutsch (unten) - Русский (ниже)
+
+
+ENGLISH
+-------
+
+Dextra Commander is not notarized by Apple yet, so macOS asks you to confirm that
+you trust it the first time you open it. This is needed only once.
+
+1. Drag "Dextra Commander" into the "Applications" folder.
+
+2. Open "Dextra Commander" from the Applications folder.
+   macOS shows a message that it could not verify the app. Click "Done".
+
+3. Open the Apple menu > System Settings > Privacy & Security.
+   Scroll down to the "Security" section. There is a line saying that
+   "Dextra Commander" was blocked. Click "Open Anyway".
+
+4. Confirm with "Open Anyway" once more and enter your password.
+
+From now on Dextra Commander opens normally.
+
+If macOS says the app "is damaged", or there is no "Open Anyway" button,
+open the Terminal app and run this command, then open Dextra Commander again:
+
+    xattr -dr com.apple.quarantine "/Applications/Dextra Commander.app"
+
+
+DEUTSCH
+-------
+
+Dextra Commander ist noch nicht von Apple notarisiert. Deshalb fragt macOS beim
+ersten Öffnen nach, ob Sie der App vertrauen. Das ist nur einmal nötig.
+
+1. Ziehen Sie "Dextra Commander" in den Ordner "Programme".
+
+2. Öffnen Sie "Dextra Commander" im Ordner "Programme".
+   macOS meldet, dass die App nicht überprüft werden konnte. Klicken Sie auf "Fertig".
+
+3. Öffnen Sie Apple-Menü > Systemeinstellungen > Datenschutz & Sicherheit.
+   Scrollen Sie nach unten zum Abschnitt "Sicherheit". Dort steht, dass
+   "Dextra Commander" blockiert wurde. Klicken Sie auf "Dennoch öffnen".
+
+4. Bestätigen Sie noch einmal mit "Dennoch öffnen" und geben Sie Ihr Passwort ein.
+
+Ab jetzt startet Dextra Commander ganz normal.
+
+Falls macOS meldet, die App sei "beschädigt", oder es keine Taste "Dennoch öffnen"
+gibt, öffnen Sie das Programm "Terminal", führen Sie diesen Befehl aus und öffnen
+Sie Dextra Commander danach erneut:
+
+    xattr -dr com.apple.quarantine "/Applications/Dextra Commander.app"
+
+
+РУССКИЙ
+-------
+
+Dextra Commander пока не прошёл нотаризацию Apple, поэтому при первом запуске
+macOS просит подтвердить, что вы доверяете приложению. Это нужно сделать один раз.
+
+1. Перетащите "Dextra Commander" в папку "Программы" (Applications).
+
+2. Откройте "Dextra Commander" из папки "Программы".
+   macOS сообщит, что не удалось проверить приложение. Нажмите "Готово".
+
+3. Откройте меню Apple > Системные настройки > Конфиденциальность и безопасность.
+   Прокрутите вниз до раздела "Безопасность". Там будет строка о том, что
+   "Dextra Commander" был заблокирован. Нажмите "Всё равно открыть".
+
+4. Подтвердите ещё раз кнопкой "Всё равно открыть" и введите пароль.
+
+После этого Dextra Commander открывается как обычно.
+
+Если macOS пишет, что приложение "повреждено", или кнопки "Всё равно открыть" нет,
+откройте программу "Терминал", выполните эту команду и снова откройте Dextra Commander:
+
+    xattr -dr com.apple.quarantine "/Applications/Dextra Commander.app"
