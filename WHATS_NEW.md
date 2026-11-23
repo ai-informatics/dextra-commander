@@ -1,6 +1,7 @@
 # What's New in Dextra Commander
 
 ## Unreleased
+- Pressing `Space` on a folder now calculates its size instead of showing a preview, which had nothing useful to show for a folder. Applications and other packages, as well as files like archives, are still previewed.
 - New: a terminal in the opposite panel. Press `Alt + Cmd + O` to open a terminal in place of the inactive panel, next to the files you're working with. It starts in the active panel's folder and follows it while idle. Hiding the terminal keeps its session running, so it's there unchanged when shown again. The full-window terminal has moved to `Shift + Alt + Cmd + O`. Press `Ctrl + Tab` to jump between the terminal and the panel, a slim bar below the terminal shows the shortcuts. Following the panel can be turned off in the Terminal preferences, and `Alt + Cmd + S` (`View > Sync Terminal Folder with Panel`) moves the terminal to the panel's folder on demand.
 
 ## Version 2.0.0 (17 Nov 2026)

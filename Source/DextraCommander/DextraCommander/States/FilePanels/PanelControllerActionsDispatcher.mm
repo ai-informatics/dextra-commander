@@ -4,11 +4,18 @@
 #include <DextraCommander/Core/Alert.h>
 #include <Utility/NSMenu+Hierarchical.h>
 #include "PanelController.h"
+#include "PanelView.h"
+#include "MainWindowFilePanelState.h"
 #include "Helpers/Pasteboard.h"
 #include "Actions/GoToFolder.h"
 #include "Actions/OpenFile.h"
 #include "Actions/Enter.h"
+#include <DextraCommander/Bootstrap/Config.h>
+#include <VFS/VFS.h>
+#include <Utility/StringExtras.h>
 #include <iostream>
+
+static const auto g_ConfigSpaceCalculatesFolderSize = "filePanel.general.spaceCalculatesFolderSize";
 
 using namespace nc::core;
 using namespace nc::panel;
@@ -92,6 +99,12 @@ static void Perform(SEL _sel, const PanelActionsMap &_map, PanelController *_tar
     }
 
     if( event_action_tag == tags.show_preview ) {
+        // A preview of a folder shows nothing useful, so the same key calculates its size instead.
+        if( [self showPreviewShouldCalculateFolderSize] ) {
+            if( _handle )
+                [self OnCalculateSizes:self];
+            return view::BiddingPriority::High;
+        }
         if( _handle ) {
             [self OnFileViewCommand:self];
             return view::BiddingPriority::High;
@@ -458,6 +471,25 @@ static void Perform(SEL _sel, const PanelActionsMap &_map, PanelController *_tar
 - (IBAction)OnCalculateSizes:(id)sender
 {
     PERFORM;
+}
+
+// True if the focused item is an ordinary folder - not "..", nor a package like an application bundle - and no preview
+// is shown, which the key has to close then.
+- (bool)showPreviewShouldCalculateFolderSize
+{
+    if( !GlobalConfig().GetBool(g_ConfigSpaceCalculatesFolderSize) )
+        return false;
+    const auto item = m_PC.view.item;
+    if( !item || !item.IsDir() || item.IsDotDot() )
+        return false;
+    if( [m_PC.state quickLookForPanel:m_PC make:false] != nil )
+        return false;
+    if( item.Host()->IsNativeFS() ) {
+        NSString *const path = [NSString stringWithUTF8StdString:item.Path()];
+        if( path == nil || [NSWorkspace.sharedWorkspace isFilePackageAtPath:path] )
+            return false;
+    }
+    return [self validateActionBySelector:@selector(OnCalculateSizes:)];
 }
 - (IBAction)OnCalculateAllSizes:(id)sender
 {

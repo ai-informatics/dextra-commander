@@ -148,6 +148,12 @@
              * Automatically deselect items after they were processed by a file operation.
              */
             "deselectItemsAfterFileOperations": true,
+
+            /**
+             * True if pressing the preview key (Space by default) on a folder calculates its size instead of
+             * showing a preview. Packages like applications are still previewed.
+             */
+            "spaceCalculatesFolderSize": true,
             
             /**
              * When opening a file from a VFS, DC will have to copy it into a temporary location first.

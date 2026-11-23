@@ -176,6 +176,11 @@ The `Shift + Return` hotkey opens an item in macOS using its default association
 
 To open an item outside of Dextra Commander using a specific application, select the application from the `Open With` menu, which is available in the context menu or the `File` menu.
 
+The `Space` key shows a preview of the focused item.
+On a regular folder, where a preview isn't useful, it calculates the size of the folder instead, the same as `Shift + Opt + Return` does: of the selected folders if there are any, otherwise of the focused one.
+Packages, such as applications, and files, such as archives, are still previewed.
+This can be turned off with the `filePanel.general.spaceCalculatesFolderSize` setting in the configuration file.
+
 ### Open With Picker
 For a faster, keyboard-driven alternative to the `Open With` menu, press `Esc` while a file panel is focused.
 A compact picker appears next to the panel and lets you choose an application without reaching for the mouse:
@@ -1001,7 +1006,7 @@ Some actions do not have default hotkeys but can still be accessed through the a
 | &nbsp; &nbsp; Go into Folder                 |                           |
 | &nbsp; &nbsp; Go to Home Folder              | Shift + ~                 |
 | &nbsp; &nbsp; Go to Root Folder              | /                         |
-| &nbsp; &nbsp; Show Preview                   | Space                     |
+| &nbsp; &nbsp; Show Preview / Folder Size     | Space                     |
 | &nbsp; &nbsp; Show Tab №1                    |                           |
 | &nbsp; &nbsp; Show Tab №2                    |                           |
 | &nbsp; &nbsp; Show Tab №3                    |                           |
