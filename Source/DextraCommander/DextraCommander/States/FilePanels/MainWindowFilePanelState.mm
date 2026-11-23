@@ -736,15 +736,27 @@ static nc::config::Value EncodeUIState(MainWindowFilePanelState *_state)
                                                selector:@selector(windowDidResize)
                                                    name:NSWindowDidResizeNotification
                                                  object:self.window];
+        [NSNotificationCenter.defaultCenter addObserver:self
+                                               selector:@selector(windowDidBecomeKey)
+                                                   name:NSWindowDidBecomeKeyNotification
+                                                 object:self.window];
     }
     else {
         [NSNotificationCenter.defaultCenter removeObserver:self name:NSWindowDidResizeNotification object:nil];
+        [NSNotificationCenter.defaultCenter removeObserver:self name:NSWindowDidBecomeKeyNotification object:nil];
     }
 }
 
 - (void)windowDidResize
 {
     [self updateTitle];
+}
+
+- (void)windowDidBecomeKey
+{
+    // The shortcuts might have been changed in the preferences meanwhile.
+    if( FilePanelOverlappedTerminal *const terminal = self.terminalInOppositePanel )
+        terminal.hint = [self hintForTerminalInOppositePanel];
 }
 
 - (void)windowStateWillClose
@@ -971,7 +983,7 @@ static void AskAboutStoppingRunningOperations(NSWindow *_window, std::function<v
     NSString *const switch_focus =
         NSLocalizedString(@"Switch between terminal and panel", "Hint below the terminal in the opposite panel");
     NSString *const hide = NSLocalizedString(@"Hide terminal", "Hint below the terminal in the opposite panel");
-    NSString *const sync = NSLocalizedString(@"Go to panel folder", "Hint below the terminal in the opposite panel");
+    NSString *const sync = NSLocalizedString(@"Sync folder", "Hint below the terminal in the opposite panel");
     NSString *const end_session =
         NSLocalizedString(@"exit - end session", "Hint below the terminal in the opposite panel");
 

@@ -1939,23 +1939,6 @@
         }
       }
     },
-    "Go to panel folder" : {
-      "comment" : "Hint below the terminal in the opposite panel",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Перейти в папку панели"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "转到面板文件夹"
-          }
-        }
-      }
-    },
     "Gray" : {
       "localizations" : {
         "ru" : {
@@ -3065,6 +3048,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在终端和面板之间切换"
+          }
+        }
+      }
+    },
+    "Sync folder" : {
+      "comment" : "Hint below the terminal in the opposite panel",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Синхронизировать папку"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "同步文件夹"
           }
         }
       }
