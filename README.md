@@ -25,6 +25,14 @@ Install via Homebrew: `brew install nimble-commander`.
 ## Past Releases
 Access all previous releases at https://github.com/mikekazakov/nimble-commander-releases. 
 
+## Community Forks
+Nimble Commander is no longer actively maintained. The following forks continue its development independently.
+They are not endorsed by the author of Nimble Commander - please refer to each project for details.
+
+- [cfanmaoli/nimble-commander](https://github.com/cfanmaoli/nimble-commander)
+- [Dextra Commander](https://github.com/ai-informatics/dextra-commander)
+- [yuriipavlov/nimble-commander](https://github.com/yuriipavlov/nimble-commander)
+
 # Documentation
 The user guide can be found here: [Help.md](Docs/Help.md).
 
