@@ -3,7 +3,9 @@
 #include "../MainWindowFilePanelState.h"
 #include "../PanelController.h"
 #include <Panel/PanelData.h>
+#include <Panel/PanelDataSelection.h>
 #include "../Views/FilePanelMainSplitView.h"
+#include <DextraCommander/Core/Alert.h>
 
 namespace nc::panel::actions {
 
@@ -51,6 +53,40 @@ bool SwapPanels::Predicate(MainWindowFilePanelState *_target) const
 void SwapPanels::Perform(MainWindowFilePanelState *_target, id /*_sender*/) const
 {
     [_target swapPanels];
+}
+
+bool CompareFolders::Predicate(MainWindowFilePanelState *_target) const
+{
+    if( _target.splitView.anyCollapsedOrOverlayed )
+        return false;
+    const auto left = _target.leftPanelController;
+    const auto right = _target.rightPanelController;
+    // Temporary panels with items from different folders can't be compared by names.
+    return left && right && left.isUniform && right.isUniform;
+}
+
+void CompareFolders::Perform(MainWindowFilePanelState *_target, id /*_sender*/) const
+{
+    if( !Predicate(_target) )
+        return;
+
+    const auto left = _target.leftPanelController;
+    const auto right = _target.rightPanelController;
+    const auto comparison = data::CompareFolders(left.data, right.data);
+    [left setEntriesSelection:comparison.left];
+    [right setEntriesSelection:comparison.right];
+
+    if( comparison.differences == 0 ) {
+        Alert *const alert = [[Alert alloc] init];
+        alert.messageText = NSLocalizedString(@"No differences found", "Result of comparing the folders of two panels");
+        alert.informativeText =
+            NSLocalizedString(@"The items in both panels have the same names, sizes and modification dates.",
+                              "Result of comparing the folders of two panels");
+        [alert addButtonWithTitle:NSLocalizedString(@"OK", "")];
+        [alert beginSheetModalForWindow:_target.window
+                      completionHandler:^([[maybe_unused]] NSModalResponse _response){
+                      }];
+    }
 }
 
 } // namespace nc::panel::actions

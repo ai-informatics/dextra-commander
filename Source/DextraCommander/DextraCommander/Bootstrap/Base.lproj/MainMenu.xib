@@ -287,6 +287,13 @@ DQ
                                     <action selector="OnMenuInvertSelection:" target="-1" id="PXn-k3-eK1"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="CmF-sp-Sep"/>
+                            <menuItem title="Compare Folders" tag="12060" id="CmF-mn-Itm">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="OnCompareFolders:" target="-1" id="CmF-mn-Act"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

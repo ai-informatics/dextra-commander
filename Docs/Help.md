@@ -236,6 +236,17 @@ There are numerous ways to manipulate the item selection using the keyboard or m
 - `Alt + Cmd + =`: selects all items with the same extension as the currently focused item.
 - `Alt + Cmd + -`: deselects all items with the same extension as the currently focused item.
 
+### Comparing Folders
+`Shift + F2` or the `Edit > Compare Folders` menu item compares the folders shown in the two panels and selects the items that differ, so they can be copied to the other side, like "Compare directories" in Total Commander:
+
+- An item that exists only in one of the panels is selected.
+- Of two files with different modification dates, the newer one is selected.
+- Two files with the same modification date but different sizes are both selected.
+- Files with the same name, size and modification date are considered the same, their contents are not compared. Dates that differ by up to 2 seconds are considered the same, since some file systems like FAT store them with this precision.
+- Folders that exist in both panels are not compared.
+
+The comparison replaces the current selection in both panels. If there are no differences, Dextra Commander says so.
+
 ## Sorting Modes
 Dextra Commander offers various ways to organize items in a folder.
 You can sort the items in ascending or descending order based on the following properties:
@@ -866,6 +877,7 @@ Some actions do not have default hotkeys but can still be accessed through the a
 | &nbsp; Select All                            | Cmd + A                   |
 | &nbsp; Deselect All                          | Opt + Cmd + A             |
 | &nbsp; Invert Selection                      | Ctrl + Cmd + A            |
+| &nbsp; Compare Folders                       | Shift + F2                |
 | _**View Menu**_                              |                           |
 | &nbsp; Toggle Single-Pane Mode               | Shift + Cmd + P           |
 | &nbsp; Swap Panels                           | Cmd + U                   |

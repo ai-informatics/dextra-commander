@@ -2291,6 +2291,23 @@
         }
       }
     },
+    "No differences found" : {
+      "comment" : "Result of comparing the folders of two panels",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Различий не найдено"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未发现差异"
+          }
+        }
+      }
+    },
     "No new tags were found." : {
       "comment" : "Information shown when no new tags were found after searching the fs",
       "localizations" : {
@@ -3190,6 +3207,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已添加以下标签：%@。"
+          }
+        }
+      }
+    },
+    "The items in both panels have the same names, sizes and modification dates." : {
+      "comment" : "Result of comparing the folders of two panels",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Элементы в обеих панелях имеют одинаковые имена, размеры и даты изменения."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "两个面板中的项目具有相同的名称、大小和修改日期。"
           }
         }
       }

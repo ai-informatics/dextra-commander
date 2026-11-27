@@ -194,6 +194,10 @@ static void Perform(SEL _sel, const StateActionsMap &_map, MainWindowFilePanelSt
 {
     PERFORM;
 }
+- (IBAction)OnCompareFolders:(id)sender
+{
+    PERFORM;
+}
 - (IBAction)OnShowTerminal:(id)sender
 {
     PERFORM;

@@ -2353,6 +2353,30 @@
         }
       }
     },
+    "CmF-mn-Itm.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Compare Folders\"; ObjectID = \"CmF-mn-Itm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Compare Folders"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сравнить папки"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "比较文件夹"
+          }
+        }
+      }
+    },
     "db8-IO-kEa.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Open With\"; ObjectID = \"db8-IO-kEa\";",
       "extractionState" : "extracted_with_value",
@@ -4051,6 +4075,54 @@
         }
       }
     },
+    "TOp-pn-Trm.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Show Terminal in Opposite Panel\"; ObjectID = \"TOp-pn-Trm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show Terminal in Opposite Panel"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать терминал в соседней панели"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在另一面板中显示终端"
+          }
+        }
+      }
+    },
+    "TSy-nc-Trm.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Sync Terminal Folder with Panel\"; ObjectID = \"TSy-nc-Trm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sync Terminal Folder with Panel"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Синхронизировать папку терминала с панелью"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将终端文件夹与面板同步"
+          }
+        }
+      }
+    },
     "Uht-NR-INk.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"History\"; ObjectID = \"Uht-NR-INk\";",
       "extractionState" : "extracted_with_value",
@@ -4599,54 +4671,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "查找下一个"
-          }
-        }
-      }
-    },
-    "TOp-pn-Trm.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Show Terminal in Opposite Panel\"; ObjectID = \"TOp-pn-Trm\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show Terminal in Opposite Panel"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Показать терминал в соседней панели"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在另一面板中显示终端"
-          }
-        }
-      }
-    },
-    "TSy-nc-Trm.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Sync Terminal Folder with Panel\"; ObjectID = \"TSy-nc-Trm\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Sync Terminal Folder with Panel"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Синхронизировать папку терминала с панелью"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将终端文件夹与面板同步"
           }
         }
       }

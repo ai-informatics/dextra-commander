@@ -28,6 +28,7 @@ using StateActionsMap = ankerl::unordered_dense::map<SEL, std::unique_ptr<const 
 
 - (IBAction)OnSwapPanels:(id)sender;
 - (IBAction)OnSyncPanels:(id)sender;
+- (IBAction)OnCompareFolders:(id)sender;
 - (IBAction)onFocusLeftPanel:(id)sender;
 - (IBAction)onFocusRightPanel:(id)sender;
 - (IBAction)OnShowTerminal:(id)sender;

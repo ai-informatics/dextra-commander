@@ -54,6 +54,7 @@ static constexpr std::pair<const char*,int> g_ActionsTags[] = {
     {"menu.edit.select_all",                            12'020},
     {"menu.edit.deselect_all",                          12'030},
     {"menu.edit.invert_selection",                      12'040},
+    {"menu.edit.compare_folders",                       12'060},
 
     {"menu.view.switch_dual_single_mode",               13'260},
     {"menu.view.swap_panels",                           13'020},
@@ -267,6 +268,7 @@ static constinit std::pair<const char*, const char*> g_DefaultActionShortcuts[] 
     {"menu.edit.select_all",                                "⌘a"      }, // cmd+a
     {"menu.edit.deselect_all",                              "⌥⌘a"     }, // alt+cmd+a
     {"menu.edit.invert_selection",                          "^⌘a"     }, // ctrl+cmd+a
+    {"menu.edit.compare_folders",                           "⇧\uF705" }, // shift+F2
 
     {"menu.view.switch_dual_single_mode",                   "⇧⌘p"     }, // shift+cmd+p
     {"menu.view.swap_panels",                               "⌘u"      }, // cmd+u

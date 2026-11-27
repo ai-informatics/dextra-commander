@@ -76,6 +76,37 @@ VFSListingPtr ProduceNonUniformDummyListing(const std::vector<std::tuple<std::st
     return VFSListing::Build(std::move(l));
 }
 
+// filename, is_directory, size, modification time
+VFSListingPtr ProduceComparableListing(const std::vector<std::tuple<std::string, bool, uint64_t, time_t>> &_entries)
+{
+    vfs::ListingInput l;
+    l.directories.reset(variable_container<>::type::common);
+    l.directories[0] = "/";
+    l.hosts.reset(variable_container<>::type::common);
+    l.hosts[0] = VFSHost::DummyHost();
+    l.mtimes.reset(variable_container<>::type::dense);
+    for( size_t i = 0; i < _entries.size(); ++i ) {
+        const auto &[filename, is_directory, size, mtime] = _entries[i];
+        l.filenames.emplace_back(filename);
+        l.unix_modes.emplace_back(is_directory ? (S_IRUSR | S_IWUSR | S_IFDIR) : (S_IRUSR | S_IWUSR | S_IFREG));
+        l.unix_types.emplace_back(is_directory ? DT_DIR : DT_REG);
+        l.mtimes.insert(i, mtime);
+        if( !is_directory )
+            l.sizes.insert(i, size);
+    }
+    return VFSListing::Build(std::move(l));
+}
+
+// The names of the entries marked in a selection indexed by sorted positions.
+std::set<std::string> SelectedNames(const data::Model &_data, const std::vector<bool> &_selection)
+{
+    std::set<std::string> names;
+    for( size_t i = 0; i < _selection.size(); ++i )
+        if( _selection[i] )
+            names.insert(_data.EntryAtSortPosition(static_cast<int>(i)).Filename());
+    return names;
+}
+
 TEST_CASE(PREFIX "Empty model")
 {
     const Model model;
@@ -752,6 +783,70 @@ TEST_CASE(PREFIX "ReLoad a temporary listing")
         data.ReLoad(l2);
         CHECK(data.SortedIndexForName("bark.txt") == -1);
         CHECK(data.SortedIndexForName("meow.txt") == -1);
+    }
+}
+
+TEST_CASE(PREFIX "CompareFolders")
+{
+    using Names = std::set<std::string>;
+    const time_t t = 1'700'000'000;
+    data::Model left;
+    data::Model right;
+
+    SECTION("Identical folders have no differences")
+    {
+        left.Load(ProduceComparableListing({{"..", true, 0, t}, {"a.txt", false, 10, t}, {"dir", true, 0, t}}),
+                  data::Model::PanelType::Directory);
+        right.Load(ProduceComparableListing({{"..", true, 0, t}, {"a.txt", false, 10, t}, {"dir", true, 0, t + 500}}),
+                   data::Model::PanelType::Directory);
+        const auto cmp = data::CompareFolders(left, right);
+        CHECK(cmp.differences == 0);
+        CHECK(SelectedNames(left, cmp.left).empty());
+        CHECK(SelectedNames(right, cmp.right).empty());
+    }
+    SECTION("Entries missing on the other side are selected, but never ..")
+    {
+        left.Load(ProduceComparableListing({{"..", true, 0, t}, {"only_left.txt", false, 1, t}, {"dir_l", true, 0, t}}),
+                  data::Model::PanelType::Directory);
+        right.Load(ProduceComparableListing({{"..", true, 0, t}, {"only_right.txt", false, 1, t}}),
+                   data::Model::PanelType::Directory);
+        const auto cmp = data::CompareFolders(left, right);
+        CHECK(SelectedNames(left, cmp.left) == Names{"only_left.txt", "dir_l"});
+        CHECK(SelectedNames(right, cmp.right) == Names{"only_right.txt"});
+        CHECK(cmp.differences == 3);
+    }
+    SECTION("Only the newer of two files is selected")
+    {
+        left.Load(ProduceComparableListing({{"new_left", false, 1, t + 60}, {"new_right", false, 1, t}}),
+                  data::Model::PanelType::Directory);
+        right.Load(ProduceComparableListing({{"new_left", false, 2, t}, {"new_right", false, 1, t + 60}}),
+                   data::Model::PanelType::Directory);
+        const auto cmp = data::CompareFolders(left, right);
+        CHECK(SelectedNames(left, cmp.left) == Names{"new_left"});
+        CHECK(SelectedNames(right, cmp.right) == Names{"new_right"});
+    }
+    SECTION("Both files are selected when only the sizes differ")
+    {
+        left.Load(ProduceComparableListing({{"f", false, 1, t}}), data::Model::PanelType::Directory);
+        right.Load(ProduceComparableListing({{"f", false, 2, t}}), data::Model::PanelType::Directory);
+        const auto cmp = data::CompareFolders(left, right);
+        CHECK(SelectedNames(left, cmp.left) == Names{"f"});
+        CHECK(SelectedNames(right, cmp.right) == Names{"f"});
+        CHECK(cmp.differences == 2);
+    }
+    SECTION("Modification times within 2 seconds are considered the same")
+    {
+        left.Load(ProduceComparableListing({{"f", false, 1, t}}), data::Model::PanelType::Directory);
+        right.Load(ProduceComparableListing({{"f", false, 1, t + 2}}), data::Model::PanelType::Directory);
+        CHECK(data::CompareFolders(left, right).differences == 0);
+    }
+    SECTION("A directory and a file with the same name are both selected")
+    {
+        left.Load(ProduceComparableListing({{"x", true, 0, t}}), data::Model::PanelType::Directory);
+        right.Load(ProduceComparableListing({{"x", false, 1, t}}), data::Model::PanelType::Directory);
+        const auto cmp = data::CompareFolders(left, right);
+        CHECK(SelectedNames(left, cmp.left) == Names{"x"});
+        CHECK(SelectedNames(right, cmp.right) == Names{"x"});
     }
 }
 
