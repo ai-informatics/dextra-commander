@@ -13,6 +13,9 @@ On top of everything Nimble Commander offers, Dextra Commander adds:
 - **Open With picker.** Press `Esc` in a file panel to open the selected items with any application, right from the keyboard: pick one of the recently used applications or type to search through all installed ones.
 - **Custom ports for network shares.** Connect to SMB servers listening on a non-standard port by entering the server as `host:port`, e.g. `nas.local:4455`.
 - **Editing files inside archives.** Open a file from a ZIP, 7z or tar archive, edit and save it, and Dextra Commander writes the changes back into the archive.
+- **Terminal in the opposite panel.** Press `Opt + Cmd + O` to open a terminal in place of the inactive panel, right next to your files. It follows the panel's folder (also with decorated zsh prompts like oh-my-zsh or powerlevel10k), keeps its session while hidden, `Ctrl + Tab` switches between the terminal and the panel, and `Opt + Cmd + S` syncs its folder on demand.
+- **Folder sizes with Space.** Pressing `Space` on a folder calculates its size instead of showing an empty preview.
+- **Compare Folders.** Press `Shift + F2` to select the items that differ between the two panels - the ones missing on the other side and the newer of two files - like "Compare directories" in Total Commander.
 
 See [WHATS_NEW.md](WHATS_NEW.md) for the full list of changes and [Help.md](Docs/Help.md) for details.
 
