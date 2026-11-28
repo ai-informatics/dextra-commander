@@ -1,7 +1,8 @@
 # What's New in Dextra Commander
 
-## Unreleased
+## Version 2.2.0 (28 Nov 2026)
 - New: Compare Folders. Press `Shift + F2` or select `Edit > Compare Folders` to select the items that differ between the two panels: those missing on the other side and the newer of two files, like "Compare directories" in Total Commander.
+- The built-in user guide (`Help > Dextra Commander Help`), which was empty in version 2.1.0, is back.
 
 ## Version 2.1.0 (27 Nov 2026)
 - Pressing `Space` on a folder now calculates its size instead of showing a preview, which had nothing useful to show for a folder. Applications and other packages, as well as files like archives, are still previewed.
