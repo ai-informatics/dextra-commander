@@ -57,13 +57,15 @@ echo "Signing with: $(security find-identity -v -p codesigning | grep "${IDENTIT
 rm -rf "${BUILD_DIR}"
 mkdir -p "${BUILD_DIR}"
 
-# Refresh Help.pdf if the tools to build it are available, otherwise keep the existing one.
-if [ -x "$(command -v pandoc)" ] && [ -x "$(command -v xelatex)" ]; then
-    (cd "${SCRIPTS_DIR}" && ./build_help.sh) # the script expects to be run from its own directory
-    cp -f "${SCRIPTS_DIR}/build_help.tmp/Help.pdf" "${ROOT_DIR}/Source/DextraCommander/DextraCommander/Resources/Help.pdf"
-else
-    echo "pandoc or xelatex is not found, keeping the existing Help.pdf."
+# Build Help.pdf - the repository only has an empty placeholder, so a release can't go without it.
+# BasicTeX installs xelatex into /Library/TeX/texbin, which isn't always in PATH.
+export PATH="${PATH}:/Library/TeX/texbin"
+if ! [ -x "$(command -v pandoc)" ] || ! [ -x "$(command -v xelatex)" ]; then
+    echo "pandoc and xelatex are needed to build Help.pdf, aborting. Do brew install pandoc basictex."
+    exit 1
 fi
+(cd "${SCRIPTS_DIR}" && ./build_help.sh) # the script expects to be run from its own directory
+cp -f "${SCRIPTS_DIR}/build_help.tmp/Help.pdf" "${ROOT_DIR}/Source/DextraCommander/DextraCommander/Resources/Help.pdf"
 
 # Build without signing - the bundle gets signed below, from the inside out.
 echo "Building..."
@@ -108,6 +110,11 @@ sign --entitlements "${ENTITLEMENTS}" "${APP_PATH}"
 
 codesign --verify --deep --strict "${APP_PATH}"
 echo "The signature is valid."
+
+if ! [ -s "${APP_PATH}/Contents/Resources/Help.pdf" ]; then
+    echo "Help.pdf in the built application is empty, aborting."
+    exit 1
+fi
 
 VERSION=$( ${PBUDDY} -c "Print CFBundleShortVersionString" "${APP_PATH}/Contents/Info.plist" )
 BUILD=$( ${PBUDDY} -c "Print CFBundleVersion" "${APP_PATH}/Contents/Info.plist" )
